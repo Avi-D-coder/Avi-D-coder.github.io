@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Dear Haskell it&#39;s not you, it&#39;s your tooling.  &middot; </title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="">
+
+
+<meta property="og:title" content="Dear Haskell it&#39;s not you, it&#39;s your tooling.  &middot;  ">
+<meta property="og:site_name" content=""/>
+<meta property="og:url" content="Avi-D-coder.github.io/post/dear_haskell/" />
+<meta property="og:locale" content="en-us">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content=""/>
+<meta property="og:article:published_time" content="2018-05-22T18:57:56-04:00" />
+<meta property="og:article:modified_time" content="2018-05-22T18:57:56-04:00" />
+
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@" />
+<meta name="twitter:title" content="Dear Haskell it&#39;s not you, it&#39;s your tooling." />
+<meta name="twitter:description" content="" />
+<meta name="twitter:url" content="Avi-D-coder.github.io/post/dear_haskell/" />
+<meta name="twitter:domain" content="Avi-D-coder.github.io">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Dear Haskell it&#39;s not you, it&#39;s your tooling.",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2018-05-22",
+    "description": "",
+    "wordCount": 1756
+  }
+</script>
+
+
+
+<link rel="canonical" href="Avi-D-coder.github.io/post/dear_haskell/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+<link href="/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.41-DEV" />
+
+  
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="Avi-D-coder.github.iocss/font-awesome.min.css">
+<link rel="stylesheet" href="Avi-D-coder.github.iocss/style.css">
+<link rel="stylesheet" href="Avi-D-coder.github.iocss/highlight/sunburst.css">
+
+  
+  
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-119786476-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="Avi-D-coder.github.io">
+  Avi ד&rsquo;s concise thoughts
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+
+  
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" href="mailto:avi.the.coder@gmail.com">
+  <span class="fa fa-envelope-square"></span><span>email</span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" href="https://github.com/Avi-D-coder">
+  <span class="fa fa-github-square"></span><span>github</span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Dear Haskell it&#39;s not you, it&#39;s your tooling.
+</h1>
+
+  <div class="metas">
+<time datetime="2018-05-22">22 May, 2018</time>
+
+
+  
+  &middot; Read in about 9 min
+  &middot; (1756 Words)
+  <br>
+  
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  
+
+<h4 id="dear-haskell-yes-you-have-some-bad-parts-string-ahem-but-for-the-most-part-i-enjoy-learning-to-write-you-see-the-problem-is-your-friends-they-are-extremely-agitating">Dear Haskell; yes you have some bad parts. <code>String</code> ahem. But for the most part I enjoy learning to write you. See, the problem is your friends; they are extremely agitating.</h4>
+
+<h2 id="first-your-recommend-tool-stack">First, your recommend tool Stack</h2>
+
+<p>Stack does good work sometimes, but seems to prefer making very unreasonable choices:</p>
+
+<h3 id="config-hell">Config hell</h3>
+
+<p>The default project template has three config files: <code>config-hell.cabal</code> <code>package.yaml</code>, <code>stack.yaml</code>.
+So if you want to add a dependency, how pray tell would you do it?
+Let&rsquo;s look at the config files and see if there&rsquo;s a clear way.</p>
+
+<h4 id="stack-yaml">stack.yaml</h4>
+
+<p>Well the tool we used way stack so let&rsquo;s start in <code>stack.yaml</code>.
+In <code>stack.yaml</code> the obvious choices are <code>packages</code> and <code>extra-deps</code> array.</p>
+
+<p>The comments above packages read:</p>
+
+<pre><code># User packages to be built.
+# Various formats can be used as shown in the example below.
+#
+# packages:
+# - some-directory
+# - https://example.com/foo/bar/baz-0.0.2.tar.gz
+# - location:
+#    git: https://github.com/commercialhaskell/stack.git
+#    commit: e7b331f14bcffb8367cd58fbfc8b40ec7642100a
+# - location: https://github.com/commercialhaskell/stack/commit/e7b331f14bcffb8367cd58fbfc8b40ec7642100a
+#  subdirs:
+#  - auto-update
+#  - wai
+</code></pre>
+
+<p>So <code>packages</code> are local directories and other addressable content. Not what were looking for.</p>
+
+<p>What about <code>extra-deps</code>:</p>
+
+<pre><code># Dependency packages to be pulled from upstream that are not in the resolver
+# using the same syntax as the packages field.
+# (e.g., acme-missiles-0.3)
+# extra-deps: []
+</code></pre>
+
+<p>This looks more like what were looking for, but what the fuck is a resolver.
+At the top of <code>stack.yaml</code> it reads:</p>
+
+<pre><code># Resolver to choose a 'specific' stackage snapshot or a compiler version.
+# A snapshot resolver dictates the compiler version and the set of packages
+# to be used for project dependencies. For example:
+#
+# resolver: lts-3.5
+# resolver: nightly-2015-09-21
+# resolver: ghc-7.10.2
+# resolver: ghcjs-0.1.0_ghc-7.10.2
+#
+# The location of a snapshot can be provided as a file or url. Stack assumes
+# a snapshot provided as a file might change, whereas a url resource does not.
+#
+# resolver: ./custom-snapshot.yaml
+# resolver: https://example.com/snapshots/2018-01-01.yaml
+resolver: lts-11.9
+</code></pre>
+
+<p>Okay so a resolver version is like a Linux distribution release version.</p>
+
+<p>We still haven&rsquo;t figured out how to add a package as dependency. What&rsquo;s left <code>stack.yaml</code>?</p>
+
+<pre><code class="language-yaml"># Extra package databases containing global packages
+# extra-package-dbs: []
+</code></pre>
+
+<p>Is this a like a ppa?</p>
+
+<h5 id="off-topic">&lt;off_topic&gt;</h5>
+
+<blockquote>
+<p>God I&rsquo;m having flash backs to my Ubuntu days.<br />
+And Moses said thou shalt use Arch or a distribution no one has ever heard of,
+and the people were happy until the people realized the were doing a full clone of every <code>*-git</code> aur package.</p>
+</blockquote>
+
+<h5 id="off-topic-1">&lt;/off_topic&gt;</h5>
+
+<pre><code># Extra directories used by stack for building
+# extra-include-dirs: [/path/to/dir]
+# extra-lib-dirs: [/path/to/dir]
+</code></pre>
+
+<p>Non Haskell dependencies?</p>
+
+<p>Well that didn&rsquo;t work, maybe the next config file.</p>
+
+<h3 id="package-yaml">package.yaml</h3>
+
+<p><strong>Success</strong> an array called <code>dependencies</code> it has config hell in it, but it works!
+I can add <code>- lens</code> and run <code>stack ghci</code> followed by <code>import Control.Lens</code> with out an error.</p>
+
+<pre><code>    dependencies:
+    - config-hell
+    - lens
+</code></pre>
+
+<h3 id="so-what-is-config-hell-cabal">So what is config-hell.cabal?</h3>
+
+<p>As it turns out <code>package.yaml</code> is just an alternative format for <code>config-hell.cabal</code> provided by <a href="https://github.com/sol/hpack">hpack</a>.</p>
+
+<h3 id="putting-it-all-together">Putting It all together</h3>
+
+<p>So, we have stack which is like a distribution of Haskell packages.
+If you want to use a package from a stack resolver/distribution then you put list it as a dependency in hpack&rsquo;s <code>package.yaml</code> or cabal&rsquo;s <code>config-hell.cabal</code> file, if your not using hpack.
+If you want a package that&rsquo;s not in the resolver/distribution you list it in <code>extra-deps</code> in <code>stack.yaml</code>.
+Hey, that one made sense! You use the <code>stack</code> command to manage hpack which manages cabal to manage cabal directly.
+Some stack templates use hpack some don&rsquo;t.
+Wait what&rsquo;s a template?</p>
+
+<h3 id="templates">Templates</h3>
+
+<h4 id="because-it-s-not-enough-to-have-one-over-complicated-build-system">because it&rsquo;s not enough to have one over complicated build system.</h4>
+
+<p>Templates are just lightly configured projects.
+Running <code>stack templates</code> prints this beautifully documented list.</p>
+
+<pre><code>Template                    Description
+chrisdone
+foundation                - Project based on an alternative prelude with batteries and no dependencies.
+franklinchen
+ghcjs                     - Haskell to JavaScript compiler, based on GHC
+ghcjs-old-base
+hakyll-template           - a static website compiler library
+haskeleton                - a project skeleton for Haskell packages
+hspec                     - a testing framework for Haskell inspired by the Ruby library RSpec
+new-template
+protolude                 - Project using a custom Prelude based on the Protolude library
+quickcheck-test-framework - a library for random testing of program properties
+readme-lhs                - small scale, quick start, literate haskell projects
+rio
+rubik
+scotty-hello-world
+scotty-hspec-wai
+servant                   - a set of packages for declaring web APIs at the type-level
+servant-docker
+simple
+simple-hpack
+simple-library
+spock                     - a lightweight web framework
+tasty-discover            - a project with tasty-discover with setup
+tasty-travis
+unicode-syntax-exe
+unicode-syntax-lib
+yesod-minimal
+yesod-mongo
+yesod-mysql
+yesod-postgres
+yesod-simple
+yesod-sqlite
+</code></pre>
+
+<p>As far as I can tell this is the only documentation for each template.</p>
+
+<p>Running <code>stack new project-name template-name</code> constructs a new project using the named template.
+Some templates use hpack, some don&rsquo;t.
+While I understand where they were going with this, the lack of documentation,
+consistent configuration standards, and breath of choice make this a bit of a nightmare for people starting out.
+<code>stack new test</code> and <code>stack new test simple</code> are identical, while <code>stack new test simple-hpack</code> is mostly identical.
+Both <code>simple</code> and <code>simple-hpack</code> use hpack.
+The assumption that users will realize <code>simple</code> is the default template is a pretty good one, but why make people assume at all?
+Why not say the default is simple in the list of templates?</p>
+
+<p>Enough with templates! hspec looked cool. Let&rsquo;s try it out.</p>
+
+<h2 id="inconsistent-and-suppressing-errors">Inconsistent and suppressing errors</h2>
+
+<p>Okay let&rsquo;s say I have a simple project (we&rsquo;ll use the default templates code) and we want to try hspec tests on it.
+We will make it with <code>stack new someFunc</code>.</p>
+
+<pre><code class="language-sh">someFunc
+├── app
+│  └── Main.hs
+├── ChangeLog.md
+├── LICENSE
+├── package.yaml
+├── README.md
+├── Setup.hs
+├── someFunc.cabal
+├── src
+│  └── Lib.hs
+├── stack.yaml
+└── test
+   └── Spec.hs
+</code></pre>
+
+<p>Our  project <code>someFunc</code> has two code files: <code>someFunc/app/Main.hs</code>, and <code>someFunc/src/Lib.hs</code>.</p>
+
+<h5 id="main-hs">Main.hs</h5>
+
+<pre><code class="language-Haskell">module Main where
+import Lib
+main :: IO ()
+main = someFunc
+</code></pre>
+
+<h5 id="lib-hs">Lib.hs</h5>
+
+<pre><code class="language-Haskell">module Lib
+    ( someFunc
+    ) where
+someFunc :: IO ()
+someFunc = putStrLn &quot;someFunc&quot;
+</code></pre>
+
+<p>let&rsquo;s take a look at the <code>hspec</code> template.
+<code>stack new someFunc-hspec hspec</code> creates:</p>
+
+<pre><code class="language-sh">someFunc-hspec
+├── app
+│  └── Main.hs
+├── LICENSE
+├── README.md
+├── Setup.hs
+├── someFunc-hspec.cabal
+├── src
+│  └── Data
+│     └── String
+│        └── Strip.hs
+├── stack.yaml
+└── test
+   ├── Data
+   │  └── String
+   │     └── StripSpec.hs
+   └── Spec.hs
+</code></pre>
+
+<h5 id="main-hs-1">Main.hs</h5>
+
+<pre><code class="language-Haskell">module Main where
+import Data.String.Strip
+main :: IO ()
+main = interact strip
+</code></pre>
+
+<h5 id="strip-hs">Strip.hs</h5>
+
+<pre><code class="language-Haskell">module Data.String.Strip (strip)  where
+import Data.Char
+strip :: String -&gt; String
+strip = dropWhile isSpace . reverse . dropWhile isSpace . reverse
+</code></pre>
+
+<h5 id="stripspec-hs">StripSpec.hs</h5>
+
+<pre><code class="language-Haskell">module Data.String.StripSpec (main, spec) where
+import Test.Hspec
+import Test.QuickCheck
+import Data.String.Strip
+-- `main` is here so that this module can be run from GHCi on its own.  It is
+-- not needed for automatic spec discovery.
+main :: IO ()
+main = hspec spec
+spec :: Spec
+spec = do
+  describe &quot;strip&quot; $ do
+    it &quot;removes leading and trailing whitespace&quot; $ do
+      strip &quot;\t  foo bar\n&quot; `shouldBe` &quot;foo bar&quot;
+    it &quot;is idempotent&quot; $ property $
+      \str -&gt; strip str === strip (strip str)
+</code></pre>
+
+<p><code>stack test</code> produces a successful test.</p>
+
+<p>Cool, but I want to test <code>someFunc</code>, so we&rsquo;ll copy the code files from <code>someFunc</code> into <code>someFunc-hspec</code> and delete the template&rsquo;s code and tests for now.</p>
+
+<pre><code class="language-sh">cp someFunc/app/Main.hs someFunc-hspec/app/Main.hs
+cp someFunc/src/Lib.hs someFunc-hspec/src
+
+rm -rf someFunc-hspec/src/Data
+rm -rf someFunc-hspec/test/Data
+
+cd someFunc-hspec
+``
+
+To get
+```sh
+.
+├── app
+│  └── Main.hs
+├── LICENSE
+├── README.md
+├── Setup.hs
+├── someFunc-hspec.cabal
+├── src
+│  └── Lib.hs
+├── stack.yaml
+└── test
+   └── Spec.hs
+</code></pre>
+
+<p>Now we&rsquo;ll see if everything worked out with <code>stack ghci</code>.</p>
+
+<pre><code class="language-Haskell">someFunc-hspec-0.1.0.0: initial-build-steps (lib + exe)
+The following GHC options are incompatible with GHCi and have not been passed to it: -threaded
+Configuring GHCi with the following packages: someFunc-hspec
+Using main module: 1. Package `someFunc-hspec' component exe:someFunc-hspec with main-is file: /home/host/haskell-hell/someFunc-hspec/app/Main.hs
+GHCi, version 8.2.2: http://www.haskell.org/ghc/  :? for help
+[1 of 2] Compiling Lib              ( /home/host/haskell-hell/someFunc-hspec/src/Lib.hs, interpreted )
+[2 of 2] Compiling Main             ( /home/host/haskell-hell/someFunc-hspec/app/Main.hs, interpreted )
+Ok, two modules loaded.
+Loaded GHCi configuration from /tmp/haskell-stack-ghci/433033ec/ghci-script
+*Main&gt; main
+someFunc
+*Main&gt;
+</code></pre>
+
+<p>Great, it all worked!</p>
+
+<p>So, now well build it with <code>stack build</code></p>
+
+<pre><code>someFunc-hspec-0.1.0.0: build (lib + exe)
+Preprocessing library for someFunc-hspec-0.1.0.0..
+Cabal-simple_mPHDZzAJ_2.0.1.0_ghc-8.2.2: can't find source for
+Data/String/Strip in src,
+.stack-work/dist/x86_64-linux-tinfo6/Cabal-2.0.1.0/build/autogen,
+.stack-work/dist/x86_64-linux-tinfo6/Cabal-2.0.1.0/build/global-autogen
+--  While building custom Setup.hs for package someFunc-hspec-0.1.0.0
+using:
+      /home/host/.stack/setup-exe-cache/x86_64-linux-tinfo6/Cabal-simple_mPHDZzAJ_2.0.1.0_ghc-8.2.2 --builddir=.stack-work/dist/x86_64-linux-tinfo6/Cabal-2.0.1.0 build lib:someFunc-hspec exe:someFunc-hspec --ghc-options &quot; -ddump-hi -ddump-to-file -fdiagnostics-color=always&quot;
+          Process exited with code: ExitFailure 1
+</code></pre>
+
+<p>The code works in ghci, but now with stack build.</p>
+
+<pre><code class="language-sh">rg  'Strip'
+someFunc-hspec.cabal
+18:  exposed-modules:     Data.String.Strip
+</code></pre>
+
+<p>So ghci doesn&rsquo;t read the cabal config.
+If we replace <code>Data.String.Strip</code> with <code>Lib</code>.
+<code>stack build</code> is success full.</p>
+
+<p>Let&rsquo;s make a test for <code>someFunc</code></p>
+
+<p>First, we modify <code>Lib.hs</code> by making it return a string not IO.
+This is need necessary to test it as IO is very difficult to test.</p>
+
+<h4 id="lib-hs-1">Lib.hs</h4>
+
+<pre><code class="language-Haskell">module Lib
+    ( someFunc
+    ) where
+
+someFunc :: String
+someFunc = &quot;someFunc&quot;
+</code></pre>
+
+<p>Then we add <code>putStrLn</code> to <code>Main.hs</code></p>
+
+<h4 id="main-hs-2">Main.hs</h4>
+
+<pre><code class="language-Haskell">module Main where
+
+import Lib
+
+main :: IO ()
+main = putStrLn someFunc
+</code></pre>
+
+<p>Now we have a passing test of <code>someFunc</code>!</p>
+
+<h2 id="a-comparison-with-rust">A Comparison with rust</h2>
+
+<p><code>cargo</code> only has two project templates binary, and library.
+<code>cargo new some_func</code> uses the binary template.</p>
+
+<pre><code class="language-sh">some_func
+├── Cargo.toml
+└── src
+   └── main.rs
+</code></pre>
+
+<p>We will add a <code>lib.rs</code> file to <code>src</code> containing the function and it&rsquo;s test.</p>
+
+<h4 id="lib-rs">lib.rs</h4>
+
+<pre><code class="language-rust">/// some_func returns &quot;some_func&quot;
+pub fn some_func() -&gt; &amp;'static str {
+    &quot;some_func&quot;
+}
+
+#[test]
+fn test_some_func() {
+   assert_eq!(some_func(), &quot;some_func&quot;);
+}
+</code></pre>
+
+<p>Then well modify <code>main.rs</code>.</p>
+
+<h4 id="main-rs">main.rs</h4>
+
+<pre><code class="language-rust">mod lib;
+use lib::some_func;
+
+fn main() {
+    println!(&quot;{}&quot;, some_func());
+}
+</code></pre>
+
+<p>Now <code>cargo test</code> passes!</p>
+
+<p>You&rsquo;ll notice there is only one config file.</p>
+
+<h4 id="cargo-toml">Cargo.toml</h4>
+
+<pre><code class="language-toml">[package]
+name = &quot;some_func&quot;
+version = &quot;0.1.0&quot;
+authors = [&quot;Avi ד &lt;avi.the.coder@gmail.com&gt;&quot;]
+
+[dependencies]
+</code></pre>
+
+<p>When we run <code>cargo test</code> or <code>cargo build</code> it generates <code>Cargo.lock</code>, While this is not as theoretically sound as stack or the cabal solver, in practice, I have doubts that any amount of time I spend on manually configuring package versions will ever match the time it takes to learn cabal and stack.</p>
+
+<h2 id="disclaimer">Disclaimer</h2>
+
+<p>I am not intending to criticize the work done on cabal or stack. Both solve hard problems.
+I intend to highlight making stack and cabal the default choice for new Haskell programmers&rsquo; front loads complexity.
+I would venture that the primary reason Haskell is such a niche language is because of the prioritization of theoretical soundness at the expense of ease of use.
+If any one, and this is a big &ldquo;If&rdquo;, actually wants Haskell to become more main stream, perhaps try making easier, slightly less-sound tools like cargo.
+I am not a big fan of the adage &lsquo;worse is better&rsquo;, but some times the easy way is better than theoretically sound.</p>
+
+<p>Also apologies for my attempt at humor</p>
+
+</div>
+
+
+  
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+
+</div>
+
+
+  
+<div class="container copyright">
+  
+  &copy; 2018 Avi ד.
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+
+
+
+<script src="Avi-D-coder.github.iojs/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+    
+  </body>
+</html>
+
