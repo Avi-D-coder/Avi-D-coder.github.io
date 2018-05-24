@@ -20,7 +20,7 @@
       <pubDate>Tue, 22 May 2018 18:57:56 -0400</pubDate>
       <author>avi.the.coder@gmail.com (Avi ד)</author>
       <guid>https://avi-d-coder.github.io/post/dear_haskell/</guid>
-      <description>Dear Haskell; yes you have some bad parts. String ahem. But for the most part I enjoy learning to write you. See, the problem is your friends; they are extremely agitating. First, your recommend tool Stack Stack does good work sometimes, but seems to prefer making very unreasonable choices:
+      <description>Dear Haskell; yes you have some bad parts. String ahem. But for the most part I enjoy learning to write you. See, the problem is your friends; they are extremely agitating. First, your recommended tool Stack Stack does good work sometimes, but seems to prefer making very unreasonable choices:
 Config hell The default project template has three config files: config-hell.cabal package.yaml, stack.yaml. So if you want to add a dependency, how pray tell would you do it?</description>
     </item>
     
