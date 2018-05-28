@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Ideal Function Semantics  &middot; </title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="">
+
+
+<meta property="og:title" content="Ideal Function Semantics  &middot;  ">
+<meta property="og:site_name" content=""/>
+<meta property="og:url" content="https://avi-d-coder.github.io/post/ideal_function_semantics/" />
+<meta property="og:locale" content="en-us">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content=""/>
+<meta property="og:article:published_time" content="2018-05-28T12:40:01-04:00" />
+<meta property="og:article:modified_time" content="2018-05-28T12:40:01-04:00" />
+
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@" />
+<meta name="twitter:title" content="Ideal Function Semantics" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:url" content="https://avi-d-coder.github.io/post/ideal_function_semantics/" />
+<meta name="twitter:domain" content="https://avi-d-coder.github.io/">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Ideal Function Semantics",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2018-05-28",
+    "description": "",
+    "wordCount": 941
+  }
+</script>
+
+
+
+<link rel="canonical" href="https://avi-d-coder.github.io/post/ideal_function_semantics/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://avi-d-coder.github.io/touch-icon-144-precomposed.png">
+<link href="https://avi-d-coder.github.io/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.41-DEV" />
+
+  
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://avi-d-coder.github.io/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://avi-d-coder.github.io/css/style.css">
+<link rel="stylesheet" href="https://avi-d-coder.github.io/css/highlight/sunburst.css">
+
+  
+  
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-119786476-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="https://avi-d-coder.github.io/">
+  Avi ד&rsquo;s concise thoughts
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+  Need&nbsp;good&nbsp;dev? I&nbsp;am&nbsp;available for hire anywhere in&nbsp;the United&nbsp;States.
+
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+
+  
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" href="mailto:avi.the.coder@gmail.com">
+  <span class="fa fa-envelope-square"></span><span>email</span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" href="https://github.com/Avi-D-coder">
+  <span class="fa fa-github-square"></span><span>github</span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Ideal Function Semantics
+</h1>
+
+  <div class="metas">
+<time datetime="2018-05-28">28 May, 2018</time>
+
+
+  
+  &middot; Read in about 5 min
+  &middot; (941 Words)
+  <br>
+  
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  
+
+<h4 id="this-post-is-part-of-the-ideal-lang-project-https-github-com-avi-d-coder-ideal-lang-git">This post is part of the <a href="https://github.com/Avi-D-coder/ideal_lang.git"><code>ideal_lang</code> project</a></h4>
+
+<p>See my upcoming blog posts for the reasons behind my ideal semantics.
+- [explicit_proven_and_asserted_constraints](avi-d-coder.github.io/posts/<strong>not written yet</strong>)
+- [function_overloading_in_depth](avi-d-coder.github.io/posts/<strong>not written yet</strong>)
+- [constraints_on_functions](avi-d-coder.github.io/posts/<strong>not written yet</strong>)</p>
+
+<p>Questions, comments, concerns and alternatives specs should be directed at the <a href="https://github.com/Avi-D-coder/ideal_lang.git"><code>ideal_lang</code> project repository</a>.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>Functions are rust like with:</p>
+
+<ul>
+<li>a more concise declaration syntax</li>
+<li>default arguments</li>
+<li>optional named arguments when calling</li>
+<li>currying based on patterns matching</li>
+<li>an immutable variant is generated for every mutating function</li>
+<li>logical constraints on function arguments, call locations, and return types</li>
+</ul>
+
+<h2 id="declaration-syntax">Declaration syntax</h2>
+
+<h4 id="simplest-form">Simplest Form:</h4>
+
+<pre><code class="language-rust">function_name(argument_name: Type) -&gt; Type {
+        //function_body
+}
+</code></pre>
+
+<h4 id="full-form">Full Form</h4>
+
+<pre><code class="language-rust">function_name: Constraints_on_Function
+    // Types are a form of Constraints
+    (argument_name: Trait_Argument_Constraints = default_value) Argument_Constraints
+    -&gt; Return_Type_Constraints {
+        //function_body
+    }
+</code></pre>
+
+<h4 id="examples">Examples</h4>
+
+<h5 id="an-add-function-could-be-written-as">An add function could be written as:</h5>
+
+<pre><code class="language-rust">add(n1: Int, n2: Int) -&gt; Int {
+    n1 + n2
+}
+</code></pre>
+
+<h5 id="or-as-a-more-general-function">or as a more general function:</h5>
+
+<pre><code class="language-rust">add(numbers: Iterator&lt;Summable&gt;) -&gt; Summable {
+    numbers.sum()
+}
+</code></pre>
+
+<h5 id="so-far-this-is-almost-rust">So far this is almost rust.</h5>
+
+<h5 id="what-is-different">What is different?</h5>
+
+<pre><code class="language-rust">/// `by != 0` is a compile time constraint value.
+/// To call div the complier must prove the constraint expression evaluates to true at compile time.
+/// In this case the expression is `by` cannot be 0.
+div(n: Int, by: Int) by != 0 -&gt; Int {
+    n / by
+}
+</code></pre>
+
+<h5 id="how-can-we-write-this-in-a-less-ad-hoc-fashion">How can we write this in a less ad hoc fashion?</h5>
+
+<pre><code class="language-rust">// Lift the assertion `!= 0` into the type system NonZero
+trait NonZero(n: Number) {
+    n != 0
+}
+
+/// `n` is constrained take any type that implements the Integer Trait.
+/// `by` is constrained take any type that implements the Integer and NonZero Traits.
+/// `div` has the signature`(Integer, Integer &amp; NonZero) -&gt; Integer
+div(n: Integer, by: Integer &amp; NonZero) -&gt; Integer {
+    n / by
+}
+</code></pre>
+
+<h5 id="proven-bounds">Proven Bounds:</h5>
+
+<pre><code class="language-rust">/// This `div` function is defined only where `n &gt;= by` and both arguments are `Integer`s,
+/// hence the return type conforms to NonZero
+/// `div` has the signature:
+/// `(n: Integer, by: Integer &amp; NonZero) n &gt;= by -&gt; Integer &amp; NonZero`
+div(n: Integer, by: Integer &amp; NonZero) n &gt;= by -&gt; Integer {
+    n / by
+}
+</code></pre>
+
+<h5 id="function-overloading">Function Overloading</h5>
+
+<p>ideal has both constraint and type based Overloading.
+A function may have different bodies and signatures based on the constraints the call conforms to, and the caller provided types.
+By default the function implementation that is most specialized to the caller&rsquo;s types and constraints is executed.
+At compile time, it is proven that the implementations of the called function exist for all caller required types and constraints.
+In other words we can have all the previous functions and a <code>div</code> function that returns a <code>Option&lt;Integer&gt;</code> and we should not have to unnecessarily unwrap <code>Option</code>.
+More on this in a future commit.</p>
+
+<pre><code class="language-rust">div(n: Integer, by: Integer &amp; !NonZero) -&gt; Integer {
+    match by {
+        0 =&gt; None,
+        _ =&gt; Some(n / by)
+    }
+}
+</code></pre>
+
+<p>Or we can just let the compiler construct all of these definitions of <code>div</code>, since by convention anything that could fail is wrapped in a <code>Option</code> or a <code>Result</code>.
+This includes mathematical operations, overflows and even allocation (resource usage is a constraint).
+The constraint solver ensures you should almost never have to match against these wrapped values.</p>
+
+<h5 id="default-arguments-and-type-variables">Default Arguments and Type Variables</h5>
+
+<pre><code class="language-rust">// `qty` and `mult`'s default_value is 1
+increment(n: Mut N, qty: N = 1, mult: N = 1) -&gt; N {
+    /// Increment `n` by `qty` * `mult`
+    n += qty * mult;
+    n
+}
+</code></pre>
+
+<h2 id="call-semantics">Call Semantics</h2>
+
+<h5 id="call-syntax">Call Syntax</h5>
+
+<pre><code class="language-rust">increment(1, 1, 1) == 2
+
+// with optional named arguments
+increment(n = 1, qty = 2, mult = 1) == 2
+</code></pre>
+
+<h5 id="default-arguments">Default Arguments</h5>
+
+<pre><code class="language-rust">// Default arguments may be omitted when:
+// the ommited argument is the last argument,
+// or when the out of order arguments are named.
+
+// both expand to increment(n = 1, qty = 2, mult = 1)
+increment(1) == 2
+increment(n = 1) == 2
+
+// expand to increment(n = 1, qty = 1, mult = 2)
+increment(1, mult = 2) == 3
+</code></pre>
+
+<h5 id="pattern-currying">Pattern Currying</h5>
+
+<pre><code class="language-rust">// currying all arguments returns a function with the type of the original
+increment(_, _, _) // returns increment(n: Mut N, qty = N = 1, mult: N = 1) -&gt; N
+// returns increment(n: Mut N, qty: N = 1, mult: N = 1) -&gt; N
+increment(n =_, qty = _, mult = _)
+
+// to foward a argument use a `_` in a function call
+// a new function will be returned with any arguments given as default values
+increment(_, _, 2): (n: Mut N, qty: N = 1, mult: N = 2) -&gt; N
+increment(n = _, qty = _, mult = 2) // returns (n: Mut N, qty: N = 1, mult: N = 2) -&gt; N
+
+increment(n = 1, qty = _) // returns (n: Mut N = 1, qty: N = 1, mult: N = 1) -&gt; N
+increment(qty = 2) == 3
+</code></pre>
+
+<h5 id="constraints-on-functions">Constraints on Functions</h5>
+
+<pre><code class="language-rust">Trait Acid {
+    // code that guarantees all calls that depend
+    // directly or indirectly on the result of `query` occur as one transaction.
+    // A Future post will elaborate on this concept.
+}
+
+Trait AcidDataBaseTable {
+    query: Acid (self, where: Query) -&gt; ReturnType(Query);
+    set: Acid (self: Mut, where: Query);
+    insert: Acid (self: Mut, item: Item);
+    remove: Acid (self: Mut, where: Query);
+}
+</code></pre>
+
+<h5 id="alternatives">Alternatives</h5>
+
+<p>Pass a transaction constructor object that is passed as a argument in order to use argument constraints.
+The Invariant constructor objects approach seems less ergonomic.
+As with all of this I would love your feedback.</p>
+
+<h5 id="footnotes">footnotes:</h5>
+
+<ol>
+<li>() denote values</li>
+<li>&lt;&gt; denote Types/Traits</li>
+<li>In the <code>div</code> functions <code>n / by</code> would really be written <code>unsafe_div_primitive(numerator= n, denominator= by)</code></li>
+</ol>
+
+</div>
+
+
+  
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+
+</div>
+
+
+  
+<div class="container copyright">
+  
+  &copy; 2018 Avi ד.
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+
+
+
+<script src="https://avi-d-coder.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+    
+  </body>
+</html>
+
