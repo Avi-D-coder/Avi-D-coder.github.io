@@ -148,8 +148,8 @@
   <p class="container content">
   
   
-    This post is part of the ideal_lang project See my upcoming blog posts for the reasons behind my ideal semantics. - [explicit_proven_and_asserted_constraints](avi-d-coder.github.io/posts/not written yet) - [function_overloading_in_depth](avi-d-coder.github.io/posts/not written yet) - [constraints_on_functions](avi-d-coder.github.io/posts/not written yet)
-Questions, comments, concerns and alternatives specs should be directed at the ideal_lang project repository.
+    This post is part of the ideal_lang project See my upcoming blog posts for the reasons behind my ideal semantics.
+ [explicit_proven_and_asserted_constraints](avi-d-coder.github.io/posts/not written yet) [function_overloading_in_depth](avi-d-coder.github.io/posts/not written yet) [constraints_on_functions](avi-d-coder.github.io/posts/not written yet)  Questions, comments, concerns and alternatives specs should be directed at the ideal_lang project repository.
 Summary Functions are rust like with:
  a more concise declaration syntax default arguments optional named arguments when calling currying based on patterns matching an immutable variant is generated for every mutating function logical constraints on function arguments, call locations, and return types  Declaration syntax Simplest Form: function_name(argument_name: Type) -&gt; Type { //function_body }  Full Form function_name: Constraints_on_Function // Types are a form of Constraints (argument_name: Trait_Argument_Constraints = default_value) Argument_Constraints -&gt; Return_Type_Constraints { //function_body }  Examples An add function could be written as: add(n1: Int, n2: Int) -&gt; Int { n1 + n2 }  or as a more general function: add(numbers: Iterator&lt;Summable&gt;) -&gt; Summable { numbers.
   

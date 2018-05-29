@@ -51,7 +51,7 @@
     },
     "datePublished": "2018-05-22",
     "description": "",
-    "wordCount": 1756
+    "wordCount": 1753
   }
 </script>
 
@@ -171,7 +171,7 @@
 
   
   &middot; Read in about 9 min
-  &middot; (1756 Words)
+  &middot; (1753 Words)
   <br>
   
 
@@ -217,7 +217,7 @@ In <code>stack.yaml</code> the obvious choices are <code>packages</code> and <co
 #  - wai
 </code></pre>
 
-<p>So <code>packages</code> are local directories and other addressable content. Not what were looking for.</p>
+<p>So <code>packages</code> are local directories and other addressable content. Not what we&rsquo;re looking for.</p>
 
 <p>What about <code>extra-deps</code>:</p>
 
@@ -227,7 +227,7 @@ In <code>stack.yaml</code> the obvious choices are <code>packages</code> and <co
 # extra-deps: []
 </code></pre>
 
-<p>This looks more like what were looking for, but what the fuck is a resolver.
+<p>This looks more like what we&rsquo;re looking for, but what the fuck is a resolver.
 At the top of <code>stack.yaml</code> it reads:</p>
 
 <pre><code># Resolver to choose a 'specific' stackage snapshot or a compiler version.
@@ -262,7 +262,7 @@ resolver: lts-11.9
 <blockquote>
 <p>God I&rsquo;m having flash backs to my Ubuntu days.<br />
 And Moses said thou shalt use Arch or a distribution no one has ever heard of,
-and the people were happy until the people realized the were doing a full clone of every <code>*-git</code> aur package.</p>
+and the people were happy until the people realized they were doing a full clone of every <code>*-git</code> aur package.</p>
 </blockquote>
 
 <h5 id="off-topic-1">&lt;/off_topic&gt;</h5>
@@ -279,7 +279,7 @@ and the people were happy until the people realized the were doing a full clone 
 <h5 id="package-yaml">package.yaml</h5>
 
 <p><strong>Success</strong> an array called <code>dependencies</code> it has config hell in it, but it works!
-I can add <code>- lens</code> and run <code>stack ghci</code> followed by <code>import Control.Lens</code> with out an error.</p>
+I can add <code>- lens</code> and run <code>stack ghci</code> followed by <code>import Control.Lens</code> without an error.</p>
 
 <pre><code>    dependencies:
     - config-hell
@@ -462,11 +462,11 @@ rm -rf someFunc-hspec/src/Data
 rm -rf someFunc-hspec/test/Data
 
 cd someFunc-hspec
-``
+</code></pre>
 
-To get
-```sh
-.
+<p>To get</p>
+
+<pre><code class="language-sh">.
 ├── app
 │  └── Main.hs
 ├── LICENSE
