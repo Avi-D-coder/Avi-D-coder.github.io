@@ -1,30 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title></title>
+    <title>Posts</title>
     <link>https://avi-d-coder.github.io/</link>
-    <description>Recent content on </description>
+    <description>Recent content on Posts</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en-US</language>
     <managingEditor>avi.the.coder@gmail.com (Avi ד)</managingEditor>
     <webMaster>avi.the.coder@gmail.com (Avi ד)</webMaster>
     <copyright>(c) 2018 Avi ד.</copyright>
-    <lastBuildDate>Mon, 28 May 2018 12:40:01 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 22 May 2018 18:57:56 -0400</lastBuildDate>
     
 	<atom:link href="https://avi-d-coder.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Ideal Function Semantics</title>
-      <link>https://avi-d-coder.github.io/post/ideal_function_semantics/</link>
-      <pubDate>Mon, 28 May 2018 12:40:01 -0400</pubDate>
-      <author>avi.the.coder@gmail.com (Avi ד)</author>
-      <guid>https://avi-d-coder.github.io/post/ideal_function_semantics/</guid>
-      <description>This post is part of the ideal_lang project See my upcoming blog posts for the reasons behind my ideal semantics.
- [explicit_proven_and_asserted_constraints](avi-d-coder.github.io/posts/not written yet) [function_overloading_in_depth](avi-d-coder.github.io/posts/not written yet) [constraints_on_functions](avi-d-coder.github.io/posts/not written yet)  Questions, comments, concerns and alternatives specs should be directed at the ideal_lang project repository.
-Summary Functions are rust like with:
- a more concise declaration syntax default arguments optional named arguments when calling currying based on patterns matching an immutable variant is generated for every mutating function logical constraints on function arguments, call locations, and return types  Declaration syntax Simplest Form: function_name(argument_name: Type) -&amp;gt; Type { //function_body }  Full Form function_name: Constraints_on_Function // Types are a form of Constraints (argument_name: Trait_Argument_Constraints = default_value) Argument_Constraints -&amp;gt; Return_Type_Constraints { //function_body }  Examples An add function could be written as: add(n1: Int, n2: Int) -&amp;gt; Int { n1 + n2 }  or as a more general function: add(numbers: Iterator&amp;lt;Summable&amp;gt;) -&amp;gt; Summable { numbers.</description>
-    </item>
     
     <item>
       <title>Dear Haskell it&#39;s not you, it&#39;s your tooling.</title>

@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title> </title>
+  <title>Posts </title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
@@ -17,35 +17,34 @@
 <meta name="keywords" content="">
 
 
-<meta property="og:title" content=" ">
-<meta property="og:site_name" content=""/>
+<meta property="og:title" content="Posts ">
+<meta property="og:site_name" content="Posts"/>
 <meta property="og:url" content="https://avi-d-coder.github.io/" />
-<meta property="og:locale" content="en-us">
+<meta property="og:locale" content="en-US">
 
 
 <meta property="og:type" content="website" />
 
 
 
-<link href="https://avi-d-coder.github.io/index.xml" rel="alternate" type="application/rss+xml" title="" />
+<link href="https://avi-d-coder.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Posts" />
 
 <link rel="canonical" href="https://avi-d-coder.github.io/" />
 
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://avi-d-coder.github.io/touch-icon-144-precomposed.png">
 <link href="https://avi-d-coder.github.io/favicon.png" rel="icon">
 
-<meta name="generator" content="Hugo 0.41-DEV" />
+<meta name="generator" content="Hugo 0.55.6" />
 
-  
-<!--[if lt IE 9]>
+  <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
 <link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://avi-d-coder.github.io/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://avi-d-coder.github.io/css/style.css">
-<link rel="stylesheet" href="https://avi-d-coder.github.io/css/highlight/sunburst.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/highlight/sunburst.css">
 
   
   
@@ -89,23 +88,29 @@
 
 
   
+<a href="https://avi-d-coder.github.io/journal" title="Show list of journal entries">Dev Journal</a>
+
+<a href="https://avi-d-coder.github.io/post" title="Show list of posts">Posts</a>
+
+<a href="https://avi-d-coder.github.io/tags" title="Show list of tags">Tags</a>
+
 
 </nav>
 
 <div class="container nav secondary no-print">
   
-<a id="contact-link-email" class="contact_link" href="mailto:avi.the.coder@gmail.com">
-  <span class="fa fa-envelope-square"></span><span>email</span></a>
+<a id="contact-link-email" class="contact_link" rel="me" aria-label="Email" href="mailto:avi.the.coder@gmail.com">
+  <span class="fa fa-envelope-square"></span></a>
 
 
 
-<a id="contact-link-github" class="contact_link" href="https://github.com/Avi-D-coder">
-  <span class="fa fa-github-square"></span><span>github</span></a>
+<a id="contact-link-github" class="contact_link" rel="me" aria-label="Github" href="https://github.com/Avi-D-coder">
+  <span class="fa fa-github-square"></span></a>
 
 
 
 
-
+ 
 
 
 
@@ -133,39 +138,15 @@
 
 
 <section id="main-content" class="container main_content homepage">
+  <header class="container header">
+    <h1>Posts
+</h1>
+
+    <span>last update: <time datetime="2018-05-22T18:57:56-04:00">22 May at 6:57pm</time>
+</span>
+
+  </header>
   
-  
-    <article class="container content summary">
-  <div class="container hat">
-  <h2><a href="https://avi-d-coder.github.io/post/ideal_function_semantics/">Ideal Function Semantics
-</a>
-</h2>
-
-  <time datetime="2018-05-28">28 May, 2018</time>
-
-</div>
-
-  <p class="container content">
-  
-  
-    This post is part of the ideal_lang project See my upcoming blog posts for the reasons behind my ideal semantics.
- [explicit_proven_and_asserted_constraints](avi-d-coder.github.io/posts/not written yet) [function_overloading_in_depth](avi-d-coder.github.io/posts/not written yet) [constraints_on_functions](avi-d-coder.github.io/posts/not written yet)  Questions, comments, concerns and alternatives specs should be directed at the ideal_lang project repository.
-Summary Functions are rust like with:
- a more concise declaration syntax default arguments optional named arguments when calling currying based on patterns matching an immutable variant is generated for every mutating function logical constraints on function arguments, call locations, and return types  Declaration syntax Simplest Form: function_name(argument_name: Type) -&gt; Type { //function_body }  Full Form function_name: Constraints_on_Function // Types are a form of Constraints (argument_name: Trait_Argument_Constraints = default_value) Argument_Constraints -&gt; Return_Type_Constraints { //function_body }  Examples An add function could be written as: add(n1: Int, n2: Int) -&gt; Int { n1 + n2 }  or as a more general function: add(numbers: Iterator&lt;Summable&gt;) -&gt; Summable { numbers.
-  
-
-
-</p>
-
-
-  <div class="container readlink">
-  <a href="https://avi-d-coder.github.io/post/ideal_function_semantics/">Read more &rarr;</a>
-
-</div>
-
-
-</article>
-
   
     <article class="container content summary">
   <div class="container hat">
@@ -234,11 +215,23 @@ Config hell The default project template has three config files: config-hell.cab
 
     </main>
     
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//avi-ds-concise-thoughts.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
 
 
 
-<script src="https://avi-d-coder.github.io/js/highlight.pack.js"></script>
+<script src="/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
 
 
     
