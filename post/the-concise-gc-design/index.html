@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>A Design for a concurrent, pauseless, copying, GC as a Rust crate  &middot; Posts</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="">
+
+
+<meta property="og:title" content="A Design for a concurrent, pauseless, copying, GC as a Rust crate  &middot; Posts ">
+<meta property="og:site_name" content="Posts"/>
+<meta property="og:url" content="https://avi-d-coder.github.io/post/the-concise-gc-design/" />
+<meta property="og:locale" content="en-US">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content=""/>
+<meta property="og:article:published_time" content="2020-03-31T08:32:59-04:00" />
+<meta property="og:article:modified_time" content="2020-03-31T08:32:59-04:00" />
+
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@" />
+<meta name="twitter:title" content="A Design for a concurrent, pauseless, copying, GC as a Rust crate" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:url" content="https://avi-d-coder.github.io/post/the-concise-gc-design/" />
+<meta name="twitter:domain" content="https://avi-d-coder.github.io/">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "A Design for a concurrent, pauseless, copying, GC as a Rust crate",
+    "author": {
+      "@type": "Person",
+      "name": "Avi Dessauer"
+    },
+    "datePublished": "2020-03-31",
+    "description": "",
+    "wordCount":  2139 
+  }
+</script>
+
+
+
+<link rel="canonical" href="https://avi-d-coder.github.io/post/the-concise-gc-design/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://avi-d-coder.github.io/touch-icon-144-precomposed.png">
+<link href="https://avi-d-coder.github.io/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.68.3" />
+
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/highlight/sunburst.css">
+
+  
+  
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-119786476-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="https://avi-d-coder.github.io/">
+  Avi Dessauer&rsquo;s slightly concise thoughts
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+  Need good dev? I am available for hire anywhere in the United States.
+
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+
+  
+<a href="https://avi-d-coder.github.io/journal" title="Show list of journal entries">Dev Journal</a>
+
+<a href="https://avi-d-coder.github.io/post" title="Show list of posts">Posts</a>
+
+<a href="https://avi-d-coder.github.io/tags" title="Show list of tags">Tags</a>
+
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" rel="me" aria-label="Email" href="mailto:avi.the.coder@gmail.com">
+  <span class="fa fa-envelope-square"></span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" rel="me" aria-label="Github" href="https://github.com/Avi-D-coder">
+  <span class="fa fa-github-square"></span></a>
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>A Design for a concurrent, pauseless, copying, GC as a Rust crate
+</h1>
+
+  <div class="metas">
+<time datetime="2020-03-31">31 Mar, 2020</time>
+
+
+  
+  &middot; Read in about 11 min
+  &middot; (2139 Words)
+  <br>
+  
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  <h3 id="the-concise-gc-design">The Concise GC design</h3>
+<p>First, we will go over the core invariants and routines that enable type safe, pause-free GC.
+Second, we will add more complex features: destructors, rooting, polymorphism, and mutation.
+The GC uses a novel tri-color like design, and monomorphic types to discipline the heap graph and minimizes inter thread synchronization.</p>
+<h2 id="the-worker-thread-view">The Worker thread View</h2>
+<ul>
+<li>Arenas are single threaded bump allocators for <code>Gc&lt;T&gt;</code>.</li>
+<li><code>Gc&lt;T&gt;</code> may contain normal non GCed rust types like <code>Box&lt;T&gt;</code>,<code>&amp;str</code>, <code>Box&lt;Mutex&lt;T&gt;&gt;</code> and <code>usize</code>.</li>
+<li>All GCed types must implement <code>Send + Sync + Trace</code></li>
+<li>A worker thread holding <code>Arena&lt;T&gt;</code> blocks garbage collection for the transitive set of types contained by <code>T</code> (transitive children).</li>
+<li>A worker may hold more than one <code>Arena&lt;T&gt;</code> at once.</li>
+<li>A worker will not block GC by holding different <code>Arena&lt;T&gt;</code>s for overlapping indefinite periods of time.</li>
+<li>GCed references are only usable for the lifetime of an arena (this is enforced by the type <code>Gc&lt;'a, T&gt;</code>).</li>
+<li>An <code>&amp;'n Arena&lt;T&gt;</code> can safely turn a <code>Gc&lt;'o, T&gt;</code> into a <code>Gc&lt;'n, T&gt;</code>,<br>
+with the method <code>fn trace_lifetime&lt;'o, 'n&gt;(&amp;'n self, t: Gc&lt;'o, T&gt;) -&gt; Gc&lt;'n, T&gt;</code><br>
+(possible for GCed direct children as well).</li>
+<li>By routinely acquiring arenas and extending lifetimes and then dropping the old arena, a worker may continuously use GC without blocking GC or incurring a pause.</li>
+<li>The largest pause will be mallocing a new arena if your working set grows.</li>
+</ul>
+<p>An <code>Arena&lt;T&gt;</code> will observe each of it&rsquo;s GCed fields <code>C</code> (direct children) to be in one of two phases:</p>
+<ol>
+<li>Fast Phase: The GC thread was not attempting to free any <code>Arena&lt;C&gt;</code> when this <code>Arena&lt;T&gt;</code> was obtained.</li>
+<li>Cooperative Phase: When a dropped <code>Arena&lt;C&gt;</code> is condemned to be freed.</li>
+</ol>
+<p>Three simplified invariants are enforced:</p>
+<ol>
+<li>All GCed types found under <code>Gc&lt;T&gt;</code> are known at compile time.</li>
+<li>When <code>C</code> is in the cooperative phase, no new direct references into the white set may be written.</li>
+<li>Having a <code>Gc&lt;C&gt;</code> requires a live <code>Arena&lt;T&gt;</code> where <code>T</code> directly or transitively contains <code>Gc&lt;C&gt;</code></li>
+</ol>
+<p>The first invariant is met by deriving implementations of <code>Trace</code>.
+Additionally, we must ensure <code>Trace</code> is not object safe,
+so polymorphic usage (<code>Gc&lt;dyn Trace&gt;</code>) produces a compile error.</p>
+<p>The Trace trait looks a bit like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">trait</span> Trace {
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">shallow_trace</span>(t: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Self</span>, what_to_trace);
+    <span style="color:#66d9ef">const</span> FIELD_COUNT: <span style="color:#66d9ef">u8</span>;
+    <span style="color:#66d9ef">const</span> TYPE_INFO: Option<span style="color:#f92672">&lt;</span>GcTypeInfo<span style="color:#f92672">&gt;</span>;
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">child_gc_info</span>() -&gt; <span style="color:#a6e22e">HashSet</span><span style="color:#f92672">&lt;</span>GcTypeInfo<span style="color:#f92672">&gt;</span>;
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">transitive_gc_info</span>() -&gt; <span style="color:#a6e22e">HashSet</span><span style="color:#f92672">&lt;</span>GcTypeInfo<span style="color:#f92672">&gt;</span>;
+}
+</code></pre></div><p>It has a blanket implementation for any shallowly immutable type that does not include a <code>Gc</code> (using auto traits).</p>
+<p>The second invariant is satisfied by <code>trace_lifetime</code> calling <code>shallow_trace</code>.
+<code>shallow_trace</code> checks the <code>Gc</code> pointers of cooperative fields (<code>child: Gc&lt;C&gt;</code>).
+If a pointer references an object in a condemned region (the white set) and the object has not been moved,
+the white object is evacuated into a live arena and a forwarding pointer is installed in the old arena.
+Copying is done into a thread specific <code>Arena&lt;C&gt;</code>, which may have to be obtained and cached.
+When an object has a destructor, it must not be duplicated, hence, tracing and forwarding requires atomic synchronization.
+An acquire-load is used to check if the value has been moved and a compare and swap is required to check that our move was not preempted.
+If we copied a unique object, but another thread moved it first, we must roll back our allocation (just a pointer increment).</p>
+<p>There are a number of optimizations for tracing and forwarding
+ranging from marking info in unused alignment bits to probabilistic relaxed forwarding, or even no forwarding at all on worker threads.
+In general, avoiding lookups in condemned Arena&rsquo;s forwarding maps is the goal.
+Type layout and requirements determine the applicable optimizations for each type at compile time.</p>
+<p>Phase info for all types <code>C</code> and condemned region pointers was left for the worker thread by the GC thread when the <code>Arena&lt;T&gt;</code> was obtained.
+Acquiring an arena is done via a compare and swap and a few relaxed loads on a cache line shared with the GC thread.
+Dropping an arena only incurs be a release store on the shared cache line.
+Arena acquisition may incur system allocation when the GC thread does not provide a free Arena.</p>
+<h2 id="the-gc-threads-view">The GC thread&rsquo;s View</h2>
+<p>The design I will describe has only one GC thread.
+There are blindingly obvious opportunities for parallelization of GC work over multiple GC threads.
+However, exploring them is beyond the scope of this simplified document.</p>
+<p>The GC thread has three main duties.</p>
+<ol>
+<li>Bookkeeping and Coordination: keep track of generations and tri-color arena sets, coordinate and track worker thread&rsquo;s type phases, and arena bounds.</li>
+<li>Scan gray arenas for references into white arenas and copy them into older generation Arenas.</li>
+<li>Running destructors (<code>Drop</code>). We will address rooting, weak pointers, and finalizers later. This almost certainly belongs on a dedicated thread.</li>
+</ol>
+<h3 id="how-does-an-arena-get-freed">How does an Arena get freed?</h3>
+<p>When a worker thread drops an arena it notifies the GC thread with a release store.
+The message contains the address of the arena header and the amount allocated.
+The allocated portion will not be written to by worker threads until the GC thread tells workers to enter a cooperative phase.
+The GC allocates arenas of associated types and ages in the same region of the heap.
+This enables the GC thread to condemn multiple arenas by sending a single pointer.
+To condemn a region the GC thread must own all arenas in the region.</p>
+<p>The GC thread attempts to find a region or, failing that, a set of Arenas to condemn.
+Once a white set has been selected, the gray set is known to be all <code>Arenas&lt;T&gt;</code> that may hold direct references to condemned types.
+Remember <code>GcTypeInfo</code> information was generated at compile time
+and subsequently loaded into the GC when the first thread registered to acquire an <code>Arena&lt;T&gt;</code>
+The gray set excludes any arenas of generation <code>N + 1</code>, since we uphold a shallow generational invariant.
+The objects in the gray set fall into two categories: objects allocated into a worker&rsquo;s live arena and objects owned by the GC.</p>
+<p>All full dropped arenas and arena segments fall into the former category.
+There are a myriad of efficient parallelization and acceleration schemes for shallow tracing of owned objects.
+The most exciting possibility is SIMD or even GPU acceleration for massive heaps.
+My initial implementation will stick to a boring algorithm, move evacuees, perform a relaxed write over the condemned pointer and add a forwarding pointer a thread local mutable forwarding map.
+Upon completion of an arena, a pointer to the now frozen forwarding map is written into the condemned arena&rsquo;s header
+(required atomic write ordering depends on the implementation of rooting).
+The write-fence denotes the conceptual transfer of the scanned arena from the gray to a shallow black set.</p>
+<p>Once all GC owned objects are marked black, GC must induce the workers to stop producing new members of the gray set.
+The GC thread sends messages to each of the worker&rsquo;s arena allocators, to enter the type cooperative phase.
+The message includes a small bit map marking the types of possibility condemned children, and pointers to white condemned regions.
+While I have not yet settled on a precise compressed encoding for messages sent on these shared cache lines,
+at least one CAS is required to ensure synchronization.</p>
+<h4 id="acquiring-an-arena">Acquiring an Arena</h4>
+<p>When a worker thread requires a new <code>Arena&lt;T&gt;</code>, it performs a few atomics loads and a CAS to acquire <code>T</code>'s phase and the white regions.
+The worker may also acquire an empty Arena left by the GC thread or the remaining segment of the worker&rsquo;s previously freed Arena.
+The CAS acquire read ensures the worker will see most recent message and
+ensures GC writes prior to the GC&rsquo;s message CAS are will be observed by the worker/
+The CAS release store informs the GC that the new arena has entered the cooperative phase.
+Allocations made in cooperative arena uphold the invariant that no new direct pointer into the white set may be written.
+When a cooperative Arena or segment is dropped by the worker, this invariant enables it to go directly into the shallow black set.
+As workers drop their fast phase <code>Arena&lt;T&gt;</code>s into the owned gray set, the GC will shallow trace them until the gray set (comprised of worker&rsquo;s fast Arenas and GC owned Arenas/Segments) is totally empty.</p>
+<h4 id="freeing-a-condemned-arena">Freeing a Condemned Arena</h4>
+<p>At this point, no new transitive references into the condemned region can be written, but a workers may still have white pointer in their stack.
+To clear these pointers, the GC thread will send all arena allocators of types containing <strong>transitive</strong> or direct pointers to a condemned type a message.
+The message is just a conformation bit.
+Both direct and transitive parents of the condemned have to drop their pre-confirmation arena segment.
+Direct parents are still in the cooperative phase and therefore must continue shallow tracing just as before.
+Once all pre-conformation arenas have been dropped, the GC thread sends one last set of messages ending these cooperative phases (The message may start a new cooperative phase on a different white set).
+When the GC observes all the cooperative phase arenas/arenas segments dropped it may run destructors and recycle or free the region.</p>
+<h3 id="rooting">Rooting</h3>
+<p>Rooting is easy.
+Each Arena header includes a pointer to the head and last node of a <code>RootList</code> (info could also be part of the forwarding map, list does not necessarily mean linked list).
+Nodes in the root list include the index of the rooted object in the arena and a pointer to the owned <code>Root&lt;T&gt;</code>.
+<code>Root&lt;T&gt;</code>s may be turned into a <code>Gc&lt;T&gt;</code> by an <code>Arena&lt;T&gt;</code> with <code>fn trace_root&lt;'o, 'n&gt;(&amp;self, &amp;Root) -&gt; Gc&lt;'n, T&gt;</code> (likely also by <code>Arena&lt;P&gt;</code> where <code>P</code> has a field <code>Gc&lt;T&gt;</code>).</p>
+<p>Before just before the Arena is condemned the rooted <code>Gc&lt;T&gt;</code>s are evacuated and the <code>Root&lt;T&gt;</code>s are updated by the GC thread.</p>
+<p>A similar mechanism could be generalized to support finalizers and arbitrary callbacks on evacuation.</p>
+<h3 id="the-polymorphic-lazy-elephant-in-the-type">The Polymorphic Lazy Elephant in the Type</h3>
+<p>Polymorphism and Laziness don&rsquo;t fit in our disciplined graph.
+A polymorphic <code>Arena&lt;dyn Trace&gt;</code> breaks the first invariant.
+An arena containing a polymorphic type is a direct reference to all types.
+This would kill performance.
+Unfortunately, banning polymorphism rules out tracing through thunks.
+This is bad for the performance of laziness, but drastically simplifies it&rsquo;s implementation.
+Rust closures are opaque, so tracing through laziness would already require procedural macros in expression position.
+Unlike <code>Gc&lt;'a, T&gt;</code>, <code>Root&lt;T&gt;</code> does not have to be traced and can be captured by normal Rust closures, making laziness much simpler.</p>
+<p>So how do we use a polymorphic type in a GCed type we <code>Box</code> it onto the Rust heap and stick the <code>Box</code> in the <code>Gc</code> (E.g. <code>Gc&lt;Box&lt;dyn Trait&gt;&gt;</code>).
+<code>Gc&lt;'r, Box&lt;dyn Fn() -&gt; usize&gt;&gt;</code> is type checks, if your closures needs the GC just capture a Root.</p>
+<h3 id="mutation">Mutation</h3>
+<p>The solution to inline mutation is much simpler,
+as it only involves ensuring an object is not duplicated or copied out from under you while in a cooperative phase.
+With that being said, implementing inline mutation is a secondary goal.
+Until proper mutation is implemented, mutation inside <code>Box</code>, and <code>Arc</code> will have to do.</p>
+<h3 id="okay-its-pauseless-but-throughput-will-suffer">Okay it&rsquo;s Pauseless, but Throughput will Suffer</h3>
+<p>At this point you maybe saying:</p>
+<ul>
+<li>Tracing from new arenas instead of roots will require traversing many more objects.</li>
+<li>Memory usage is going to blowup, as a result of falsely promoting a portion of objects to the next generation.</li>
+</ul>
+<p>While this GC will scan more objects,
+I&rsquo;m not convinced it will take longer to complete a than traditional evacuation from the roots.
+Traditional tracing involves copious unpredictable branches, and random memory loads that cannot proceed until the prior load is resolved.
+If the trace phase is multi threaded to reduce pause time, synchronization drives efficiency down even further.</p>
+<p>The bet I&rsquo;m making is once the traversal is narrowed with type info,
+the remaining increase bytes read is less than the cost of chasing pointers.
+The type graph also enables planned parallelization that requires minimal synchronization and prevents false sharing.
+Once deferred evacuation and SIMD and possible GPU tracing is thrown in, I would be surprised if tracing and evacuation is not a good deal faster than root first approaches.</p>
+<p>Memory retention is likely to be an issue.
+The solution is better heuristics and smarter condemned region selection.
+While the process I described is focused on a single white set of a few regions,
+even a single threaded GC will interleave the steps of collecting various white regions and sets of condemned types.
+Traversals will gather partial evacuations sets of uncondemned arenas to aid in region selection and get a jump on the collection.
+The GC could even keep per type and thread retention statistics in order to determine if an arena should be evacuated into an older or same generation arena.</p>
+<p>False retention can also be prevented with brute force.
+The larger the percentage of the arenas generation <code>0..=N</code> condemned the lower the risk of false retention to the next generation.</p>
+
+</div>
+
+
+  <footer class="container">
+  <div class="container navigation no-print">
+  <h2>Navigation</h2>
+  
+  
+
+    
+    <a class="prev" href="https://avi-d-coder.github.io/post/resume/" title="Avi Dessauer">
+      Previous
+    </a>
+    
+
+    
+
+  
+
+
+</div>
+
+  
+
+</footer>
+
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+
+</div>
+
+
+  
+<div class="container copyright">
+  
+  (c) 2018 Avi ד.
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+  </body>
+</html>
+

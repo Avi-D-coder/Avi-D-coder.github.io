@@ -47,11 +47,11 @@
     "headline": "Dear Haskell it\x27s not you, it\x27s your tooling.",
     "author": {
       "@type": "Person",
-      "name": "Avi ד"
+      "name": "Avi Dessauer"
     },
     "datePublished": "2018-05-22",
     "description": "",
-    "wordCount":  1752 
+    "wordCount":  1751 
   }
 </script>
 
@@ -62,7 +62,7 @@
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://avi-d-coder.github.io/touch-icon-144-precomposed.png">
 <link href="https://avi-d-coder.github.io/favicon.png" rel="icon">
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.68.3" />
 
   <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -94,7 +94,7 @@
   <div class="container brand">
   <div class="container title h1-like">
   <a class="baselink" href="https://avi-d-coder.github.io/">
-  Avi ד&rsquo;s concise thoughts
+  Avi Dessauer&rsquo;s slightly concise thoughts
 
 </a>
 
@@ -103,7 +103,7 @@
   
 <div class="container topline">
   
-  Need&nbsp;good&nbsp;dev? I&nbsp;am&nbsp;available for hire anywhere in&nbsp;the United&nbsp;States.
+  Need good dev? I am available for hire anywhere in the United States.
 
 
 </div>
@@ -176,7 +176,7 @@
 
   
   &middot; Read in about 9 min
-  &middot; (1752 Words)
+  &middot; (1751 Words)
   <br>
   
 
@@ -186,27 +186,17 @@
 </header>
 
   <div class="container content">
-  
-
-<h5 id="dear-haskell-yes-you-have-some-bad-parts-string-ahem-but-for-the-most-part-i-enjoy-learning-to-write-you-see-the-problem-is-your-friends-they-are-extremely-agitating">Dear Haskell; yes you have some bad parts. <code>String</code> ahem. But for the most part I enjoy learning to write you. See, the problem is your friends; they are extremely agitating.</h5>
-
+  <h5 id="dear-haskell-yes-you-have-some-bad-parts-string-ahem-but-for-the-most-part-i-enjoy-learning-to-write-you-see-the-problem-is-your-friends-they-are-extremely-agitating">Dear Haskell; yes you have some bad parts. <code>String</code> ahem. But for the most part I enjoy learning to write you. See, the problem is your friends; they are extremely agitating.</h5>
 <h4 id="first-your-recommended-tool-stack">First, your recommended tool Stack</h4>
-
 <p>Stack does good work sometimes, but seems to prefer making very unreasonable choices:</p>
-
 <h5 id="config-hell">Config hell</h5>
-
 <p>The default project template has three config files: <code>config-hell.cabal</code> <code>package.yaml</code>, <code>stack.yaml</code>.
 So if you want to add a dependency, how pray tell would you do it?
 Let&rsquo;s look at the config files and see if there&rsquo;s a clear way.</p>
-
-<h5 id="stack-yaml">stack.yaml</h5>
-
+<h5 id="stackyaml">stack.yaml</h5>
 <p>Well the tool we used was stack so let&rsquo;s start in <code>stack.yaml</code>.
 In <code>stack.yaml</code> the obvious choices are <code>packages</code> and <code>extra-deps</code> array.</p>
-
 <p>The comments above packages read:</p>
-
 <pre><code># User packages to be built.
 # Various formats can be used as shown in the example below.
 #
@@ -220,21 +210,14 @@ In <code>stack.yaml</code> the obvious choices are <code>packages</code> and <co
 #  subdirs:
 #  - auto-update
 #  - wai
-</code></pre>
-
-<p>So <code>packages</code> are local directories and other addressable content. Not what we&rsquo;re looking for.</p>
-
+</code></pre><p>So <code>packages</code> are local directories and other addressable content. Not what we&rsquo;re looking for.</p>
 <p>What about <code>extra-deps</code>:</p>
-
 <pre><code># Dependency packages to be pulled from upstream that are not in the resolver
 # using the same syntax as the packages field.
 # (e.g., acme-missiles-0.3)
 # extra-deps: []
-</code></pre>
-
-<p>This looks more like what we&rsquo;re looking for, but what the fuck is a resolver.
+</code></pre><p>This looks more like what we&rsquo;re looking for, but what the fuck is a resolver.
 At the top of <code>stack.yaml</code> it reads:</p>
-
 <pre><code># Resolver to choose a 'specific' stackage snapshot or a compiler version.
 # A snapshot resolver dictates the compiler version and the set of packages
 # to be used for project dependencies. For example:
@@ -250,67 +233,42 @@ At the top of <code>stack.yaml</code> it reads:</p>
 # resolver: ./custom-snapshot.yaml
 # resolver: https://example.com/snapshots/2018-01-01.yaml
 resolver: lts-11.9
-</code></pre>
-
-<p>Okay so a resolver version is like a Linux distribution release version.</p>
-
+</code></pre><p>Okay so a resolver version is like a Linux distribution release version.</p>
 <p>We still haven&rsquo;t figured out how to add a package as dependency. What&rsquo;s left <code>stack.yaml</code>?</p>
-
-<pre><code class="language-yaml"># Extra package databases containing global packages
-# extra-package-dbs: []
-</code></pre>
-
-<p>Is this a like a ppa?</p>
-
-<h5 id="off-topic">&lt;off_topic&gt;</h5>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># Extra package databases containing global packages</span>
+<span style="color:#75715e"># extra-package-dbs: []</span>
+</code></pre></div><p>Is this a like a ppa?\</p>
+<h5 id="off_topic">&lt;off_topic&gt;</h5>
 <blockquote>
-<p>God I&rsquo;m having flash backs to my Ubuntu days.<br />
+<p>God I&rsquo;m having flash backs to my Ubuntu days.<br>
 And Moses said thou shalt use Arch or a distribution no one has ever heard of,
-and the people were happy until the people realized they were doing a full clone of every <code>*-git</code> aur package.</p>
+and the people were happy until the people realized they were doing a full clone of every <code>*-git</code> aur package.\</p>
 </blockquote>
-
-<h5 id="off-topic-1">&lt;/off_topic&gt;</h5>
-
+<h5 id="off_topic-1">&lt;/off_topic&gt;</h5>
 <pre><code># Extra directories used by stack for building
 # extra-include-dirs: [/path/to/dir]
 # extra-lib-dirs: [/path/to/dir]
-</code></pre>
-
-<p>Non Haskell dependencies?</p>
-
+</code></pre><p>Non Haskell dependencies?</p>
 <p>Well that didn&rsquo;t work, maybe the next config file.</p>
-
-<h5 id="package-yaml">package.yaml</h5>
-
+<h5 id="packageyaml">package.yaml</h5>
 <p><strong>Success</strong> an array called <code>dependencies</code> it has config hell in it, but it works!
 I can add <code>- lens</code> and run <code>stack ghci</code> followed by <code>import Control.Lens</code> without an error.</p>
-
 <pre><code>    dependencies:
     - config-hell
     - lens
-</code></pre>
-
-<h4 id="so-what-is-config-hell-cabal">So what is config-hell.cabal?</h4>
-
+</code></pre><h4 id="so-what-is-config-hellcabal">So what is config-hell.cabal?</h4>
 <p>As it turns out <code>package.yaml</code> is just an alternative format for <code>config-hell.cabal</code> provided by <a href="https://github.com/sol/hpack">hpack</a>.</p>
-
 <h4 id="putting-it-all-together">Putting It all together</h4>
-
 <p>So, we have stack which is like a distribution of Haskell packages.
 If you want to use a package from a stack resolver/distribution then you put list it as a dependency in hpack&rsquo;s <code>package.yaml</code> or cabal&rsquo;s <code>config-hell.cabal</code> file, if your not using hpack.
 If you want a package that&rsquo;s not in the resolver/distribution you list it in <code>extra-deps</code> in <code>stack.yaml</code>.
 Hey, that one made sense! You use the <code>stack</code> command to manage hpack which manages cabal to manage cabal directly.
 Some stack templates use hpack some don&rsquo;t.
 Wait what&rsquo;s a template?</p>
-
 <h4 id="templates">Templates</h4>
-
-<h5 id="because-it-s-not-enough-to-have-one-over-complicated-build-system">because it&rsquo;s not enough to have one over complicated build system.</h5>
-
+<h5 id="because-its-not-enough-to-have-one-over-complicated-build-system">because it&rsquo;s not enough to have one over complicated build system.</h5>
 <p>Templates are just lightly configured projects.
 Running <code>stack templates</code> prints this beautifully documented list.</p>
-
 <pre><code>Template                    Description
 chrisdone
 foundation                - Project based on an alternative prelude with batteries and no dependencies.
@@ -344,10 +302,7 @@ yesod-mysql
 yesod-postgres
 yesod-simple
 yesod-sqlite
-</code></pre>
-
-<p>As far as I can tell this is the only documentation for each template.</p>
-
+</code></pre><p>As far as I can tell this is the only documentation for each template.</p>
 <p>Running <code>stack new project-name template-name</code> constructs a new project using the named template.
 Some templates use hpack, some don&rsquo;t.
 While I understand where they were going with this, the lack of documentation,
@@ -356,15 +311,11 @@ consistent configuration standards, and breath of choice make this a bit of a ni
 Both <code>simple</code> and <code>simple-hpack</code> use hpack.
 The assumption that users will realize <code>simple</code> is the default template is a pretty good one, but why make people assume at all?
 Why not say the default is simple in the list of templates?</p>
-
 <p>Enough with templates! hspec looked cool. Let&rsquo;s try it out.</p>
-
 <h2 id="inconsistent-and-suppressing-errors">Inconsistent and suppressing errors</h2>
-
 <p>Okay let&rsquo;s say I have a simple project (we&rsquo;ll use the default templates code) and we want to try hspec tests on it.
 We will make it with <code>stack new someFunc</code>.</p>
-
-<pre><code class="language-sh">someFunc
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">someFunc
 ├── app
 │  └── Main.hs
 ├── ChangeLog.md
@@ -378,31 +329,21 @@ We will make it with <code>stack new someFunc</code>.</p>
 ├── stack.yaml
 └── test
    └── Spec.hs
-</code></pre>
-
-<p>Our  project <code>someFunc</code> has two code files: <code>someFunc/app/Main.hs</code>, and <code>someFunc/src/Lib.hs</code>.</p>
-
-<h5 id="main-hs">Main.hs</h5>
-
-<pre><code class="language-Haskell">module Main where
-import Lib
-main :: IO ()
-main = someFunc
-</code></pre>
-
-<h5 id="lib-hs">Lib.hs</h5>
-
-<pre><code class="language-Haskell">module Lib
-    ( someFunc
-    ) where
-someFunc :: IO ()
-someFunc = putStrLn &quot;someFunc&quot;
-</code></pre>
-
-<p>let&rsquo;s take a look at the <code>hspec</code> template.
+</code></pre></div><p>Our  project <code>someFunc</code> has two code files: <code>someFunc/app/Main.hs</code>, and <code>someFunc/src/Lib.hs</code>.</p>
+<h5 id="mainhs">Main.hs</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Haskell" data-lang="Haskell"><span style="color:#66d9ef">module</span> Main <span style="color:#66d9ef">where</span>
+<span style="color:#66d9ef">import</span> Lib
+<span style="color:#a6e22e">main</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">IO</span> ()
+<span style="color:#a6e22e">main</span> <span style="color:#f92672">=</span> someFunc
+</code></pre></div><h5 id="libhs">Lib.hs</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Haskell" data-lang="Haskell"><span style="color:#66d9ef">module</span> Lib
+    ( <span style="color:#a6e22e">someFunc</span>
+    ) <span style="color:#66d9ef">where</span>
+<span style="color:#a6e22e">someFunc</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">IO</span> ()
+<span style="color:#a6e22e">someFunc</span> <span style="color:#f92672">=</span> putStrLn <span style="color:#e6db74">&#34;someFunc&#34;</span>
+</code></pre></div><p>let&rsquo;s take a look at the <code>hspec</code> template.
 <code>stack new someFunc-hspec hspec</code> creates:</p>
-
-<pre><code class="language-sh">someFunc-hspec
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">someFunc-hspec
 ├── app
 │  └── Main.hs
 ├── LICENSE
@@ -419,59 +360,43 @@ someFunc = putStrLn &quot;someFunc&quot;
    │  └── String
    │     └── StripSpec.hs
    └── Spec.hs
-</code></pre>
-
-<h5 id="main-hs-1">Main.hs</h5>
-
-<pre><code class="language-Haskell">module Main where
-import Data.String.Strip
-main :: IO ()
-main = interact strip
-</code></pre>
-
-<h5 id="strip-hs">Strip.hs</h5>
-
-<pre><code class="language-Haskell">module Data.String.Strip (strip)  where
-import Data.Char
-strip :: String -&gt; String
-strip = dropWhile isSpace . reverse . dropWhile isSpace . reverse
-</code></pre>
-
-<h5 id="stripspec-hs">StripSpec.hs</h5>
-
-<pre><code class="language-Haskell">module Data.String.StripSpec (main, spec) where
-import Test.Hspec
-import Test.QuickCheck
-import Data.String.Strip
--- `main` is here so that this module can be run from GHCi on its own.  It is
--- not needed for automatic spec discovery.
-main :: IO ()
-main = hspec spec
-spec :: Spec
-spec = do
-  describe &quot;strip&quot; $ do
-    it &quot;removes leading and trailing whitespace&quot; $ do
-      strip &quot;\t  foo bar\n&quot; `shouldBe` &quot;foo bar&quot;
-    it &quot;is idempotent&quot; $ property $
-      \str -&gt; strip str === strip (strip str)
-</code></pre>
-
-<p><code>stack test</code> produces a successful test.</p>
-
+</code></pre></div><h5 id="mainhs-1">Main.hs</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Haskell" data-lang="Haskell"><span style="color:#66d9ef">module</span> Main <span style="color:#66d9ef">where</span>
+<span style="color:#66d9ef">import</span> Data.String.Strip
+<span style="color:#a6e22e">main</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">IO</span> ()
+<span style="color:#a6e22e">main</span> <span style="color:#f92672">=</span> interact strip
+</code></pre></div><h5 id="striphs">Strip.hs</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Haskell" data-lang="Haskell"><span style="color:#66d9ef">module</span> Data.String.Strip (<span style="color:#a6e22e">strip</span>)  <span style="color:#66d9ef">where</span>
+<span style="color:#66d9ef">import</span> Data.Char
+<span style="color:#a6e22e">strip</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">String</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">String</span>
+<span style="color:#a6e22e">strip</span> <span style="color:#f92672">=</span> dropWhile isSpace <span style="color:#f92672">.</span> reverse <span style="color:#f92672">.</span> dropWhile isSpace <span style="color:#f92672">.</span> reverse
+</code></pre></div><h5 id="stripspechs">StripSpec.hs</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Haskell" data-lang="Haskell"><span style="color:#66d9ef">module</span> Data.String.StripSpec (<span style="color:#a6e22e">main</span>, <span style="color:#a6e22e">spec</span>) <span style="color:#66d9ef">where</span>
+<span style="color:#66d9ef">import</span> Test.Hspec
+<span style="color:#66d9ef">import</span> Test.QuickCheck
+<span style="color:#66d9ef">import</span> Data.String.Strip
+<span style="color:#75715e">-- `main` is here so that this module can be run from GHCi on its own.  It is</span>
+<span style="color:#75715e">-- not needed for automatic spec discovery.</span>
+<span style="color:#a6e22e">main</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">IO</span> ()
+<span style="color:#a6e22e">main</span> <span style="color:#f92672">=</span> hspec spec
+<span style="color:#a6e22e">spec</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Spec</span>
+<span style="color:#a6e22e">spec</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">do</span>
+  describe <span style="color:#e6db74">&#34;strip&#34;</span> <span style="color:#f92672">$</span> <span style="color:#66d9ef">do</span>
+    it <span style="color:#e6db74">&#34;removes leading and trailing whitespace&#34;</span> <span style="color:#f92672">$</span> <span style="color:#66d9ef">do</span>
+      strip <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">  foo bar</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> `shouldBe` <span style="color:#e6db74">&#34;foo bar&#34;</span>
+    it <span style="color:#e6db74">&#34;is idempotent&#34;</span> <span style="color:#f92672">$</span> property <span style="color:#f92672">$</span>
+      <span style="color:#a6e22e">\</span>str <span style="color:#f92672">-&gt;</span> strip str <span style="color:#f92672">===</span> strip (strip str)
+</code></pre></div><p><code>stack test</code> produces a successful test.</p>
 <p>Cool, but I want to test <code>someFunc</code>, so we&rsquo;ll copy the code files from <code>someFunc</code> into <code>someFunc-hspec</code> and delete the template&rsquo;s code and tests for now.</p>
-
-<pre><code class="language-sh">cp someFunc/app/Main.hs someFunc-hspec/app/Main.hs
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp someFunc/app/Main.hs someFunc-hspec/app/Main.hs
 cp someFunc/src/Lib.hs someFunc-hspec/src
 
 rm -rf someFunc-hspec/src/Data
 rm -rf someFunc-hspec/test/Data
 
 cd someFunc-hspec
-</code></pre>
-
-<p>To get</p>
-
-<pre><code class="language-sh">.
+</code></pre></div><p>To get</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">.
 ├── app
 │  └── Main.hs
 ├── LICENSE
@@ -483,28 +408,21 @@ cd someFunc-hspec
 ├── stack.yaml
 └── test
    └── Spec.hs
-</code></pre>
-
-<p>Now we&rsquo;ll see if everything worked out with <code>stack ghci</code>.</p>
-
-<pre><code class="language-Haskell">someFunc-hspec-0.1.0.0: initial-build-steps (lib + exe)
-The following GHC options are incompatible with GHCi and have not been passed to it: -threaded
-Configuring GHCi with the following packages: someFunc-hspec
-Using main module: 1. Package `someFunc-hspec' component exe:someFunc-hspec with main-is file: /home/host/haskell-hell/someFunc-hspec/app/Main.hs
-GHCi, version 8.2.2: http://www.haskell.org/ghc/  :? for help
-[1 of 2] Compiling Lib              ( /home/host/haskell-hell/someFunc-hspec/src/Lib.hs, interpreted )
-[2 of 2] Compiling Main             ( /home/host/haskell-hell/someFunc-hspec/app/Main.hs, interpreted )
-Ok, two modules loaded.
-Loaded GHCi configuration from /tmp/haskell-stack-ghci/433033ec/ghci-script
-*Main&gt; main
-someFunc
-*Main&gt;
-</code></pre>
-
-<p>Great, it all worked!</p>
-
+</code></pre></div><p>Now we&rsquo;ll see if everything worked out with <code>stack ghci</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Haskell" data-lang="Haskell"><span style="color:#a6e22e">someFunc</span><span style="color:#f92672">-</span>hspec<span style="color:#f92672">-</span><span style="color:#ae81ff">0.1</span><span style="color:#f92672">.</span><span style="color:#ae81ff">0.0</span><span style="color:#66d9ef">:</span> initial<span style="color:#f92672">-</span>build<span style="color:#f92672">-</span>steps (lib <span style="color:#f92672">+</span> exe)
+<span style="color:#66d9ef">The</span> following <span style="color:#66d9ef">GHC</span> options are incompatible with <span style="color:#66d9ef">GHCi</span> and have not been passed to it<span style="color:#66d9ef">:</span> <span style="color:#f92672">-</span>threaded
+<span style="color:#66d9ef">Configuring</span> <span style="color:#66d9ef">GHCi</span> with the following packages<span style="color:#66d9ef">:</span> someFunc<span style="color:#f92672">-</span>hspec
+<span style="color:#66d9ef">Using</span> main <span style="color:#66d9ef">module</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">1.</span> Package `someFunc<span style="color:#f92672">-</span>hspec&#39; component exe<span style="color:#66d9ef">:</span>someFunc<span style="color:#f92672">-</span>hspec with main<span style="color:#f92672">-</span>is file<span style="color:#66d9ef">:</span> <span style="color:#f92672">/</span>home<span style="color:#f92672">/</span>host<span style="color:#f92672">/</span>haskell<span style="color:#f92672">-</span>hell<span style="color:#f92672">/</span>someFunc<span style="color:#f92672">-</span>hspec<span style="color:#f92672">/</span>app<span style="color:#f92672">/</span><span style="color:#66d9ef">Main</span><span style="color:#f92672">.</span>hs
+<span style="color:#66d9ef">GHCi</span>, version <span style="color:#ae81ff">8.2</span><span style="color:#f92672">.</span><span style="color:#ae81ff">2</span><span style="color:#66d9ef">:</span> http<span style="color:#66d9ef">://</span>www<span style="color:#f92672">.</span>haskell<span style="color:#f92672">.</span>org<span style="color:#f92672">/</span>ghc<span style="color:#f92672">/</span>  <span style="color:#66d9ef">:?</span> for help
+[<span style="color:#ae81ff">1</span> <span style="color:#66d9ef">of</span> <span style="color:#ae81ff">2</span>] <span style="color:#66d9ef">Compiling</span> <span style="color:#66d9ef">Lib</span>              ( <span style="color:#f92672">/</span>home<span style="color:#f92672">/</span>host<span style="color:#f92672">/</span>haskell<span style="color:#f92672">-</span>hell<span style="color:#f92672">/</span>someFunc<span style="color:#f92672">-</span>hspec<span style="color:#f92672">/</span>src<span style="color:#f92672">/</span><span style="color:#66d9ef">Lib</span><span style="color:#f92672">.</span>hs, interpreted )
+[<span style="color:#ae81ff">2</span> <span style="color:#66d9ef">of</span> <span style="color:#ae81ff">2</span>] <span style="color:#66d9ef">Compiling</span> <span style="color:#66d9ef">Main</span>             ( <span style="color:#f92672">/</span>home<span style="color:#f92672">/</span>host<span style="color:#f92672">/</span>haskell<span style="color:#f92672">-</span>hell<span style="color:#f92672">/</span>someFunc<span style="color:#f92672">-</span>hspec<span style="color:#f92672">/</span>app<span style="color:#f92672">/</span><span style="color:#66d9ef">Main</span><span style="color:#f92672">.</span>hs, interpreted )
+<span style="color:#66d9ef">Ok</span>, two modules loaded<span style="color:#f92672">.</span>
+<span style="color:#66d9ef">Loaded</span> <span style="color:#66d9ef">GHCi</span> configuration from <span style="color:#f92672">/</span>tmp<span style="color:#f92672">/</span>haskell<span style="color:#f92672">-</span>stack<span style="color:#f92672">-</span>ghci<span style="color:#f92672">/</span><span style="color:#ae81ff">433033</span>ec<span style="color:#f92672">/</span>ghci<span style="color:#f92672">-</span>script
+<span style="color:#f92672">*</span><span style="color:#66d9ef">Main</span><span style="color:#f92672">&gt;</span> main
+<span style="color:#a6e22e">someFunc</span>
+<span style="color:#f92672">*</span><span style="color:#66d9ef">Main</span><span style="color:#f92672">&gt;</span>
+</code></pre></div><p>Great, it all worked!</p>
 <p>So, now we&rsquo;ll build it with <code>stack build</code></p>
-
 <pre><code>someFunc-hspec-0.1.0.0: build (lib + exe)
 Preprocessing library for someFunc-hspec-0.1.0.0..
 Cabal-simple_mPHDZzAJ_2.0.1.0_ghc-8.2.2: can't find source for
@@ -515,110 +433,74 @@ Data/String/Strip in src,
 using:
       /home/host/.stack/setup-exe-cache/x86_64-linux-tinfo6/Cabal-simple_mPHDZzAJ_2.0.1.0_ghc-8.2.2 --builddir=.stack-work/dist/x86_64-linux-tinfo6/Cabal-2.0.1.0 build lib:someFunc-hspec exe:someFunc-hspec --ghc-options &quot; -ddump-hi -ddump-to-file -fdiagnostics-color=always&quot;
           Process exited with code: ExitFailure 1
-</code></pre>
-
-<p>The code works in ghci, but now with stack build.</p>
-
-<pre><code class="language-sh">rg  'Strip'
+</code></pre><p>The code works in ghci, but now with stack build.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">rg  <span style="color:#e6db74">&#39;Strip&#39;</span>
 someFunc-hspec.cabal
 18:  exposed-modules:     Data.String.Strip
-</code></pre>
-
-<p>So ghci doesn&rsquo;t read the cabal config.
+</code></pre></div><p>So ghci doesn&rsquo;t read the cabal config.
 If we replace <code>Data.String.Strip</code> with <code>Lib</code>.
 <code>stack build</code> is successful.</p>
-
 <p>Let&rsquo;s make a test for <code>someFunc</code></p>
-
 <p>First, we modify <code>Lib.hs</code> by making it return a string not IO.
 This is need necessary to test it as IO is very difficult to test.</p>
+<h5 id="libhs-1">Lib.hs</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Haskell" data-lang="Haskell"><span style="color:#66d9ef">module</span> Lib
+    ( <span style="color:#a6e22e">someFunc</span>
+    ) <span style="color:#66d9ef">where</span>
 
-<h5 id="lib-hs-1">Lib.hs</h5>
+<span style="color:#a6e22e">someFunc</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">String</span>
+<span style="color:#a6e22e">someFunc</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;someFunc&#34;</span>
+</code></pre></div><p>Then we add <code>putStrLn</code> to <code>Main.hs</code></p>
+<h5 id="mainhs-2">Main.hs</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Haskell" data-lang="Haskell"><span style="color:#66d9ef">module</span> Main <span style="color:#66d9ef">where</span>
 
-<pre><code class="language-Haskell">module Lib
-    ( someFunc
-    ) where
+<span style="color:#66d9ef">import</span> Lib
 
-someFunc :: String
-someFunc = &quot;someFunc&quot;
-</code></pre>
-
-<p>Then we add <code>putStrLn</code> to <code>Main.hs</code></p>
-
-<h5 id="main-hs-2">Main.hs</h5>
-
-<pre><code class="language-Haskell">module Main where
-
-import Lib
-
-main :: IO ()
-main = putStrLn someFunc
-</code></pre>
-
-<p>Now we have a passing test of <code>someFunc</code>!</p>
-
+<span style="color:#a6e22e">main</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">IO</span> ()
+<span style="color:#a6e22e">main</span> <span style="color:#f92672">=</span> putStrLn someFunc
+</code></pre></div><p>Now we have a passing test of <code>someFunc</code>!</p>
 <h2 id="a-comparison-with-rust">A Comparison with rust</h2>
-
 <p><code>cargo</code> only has two project templates binary, and library.
 <code>cargo new some_func</code> uses the binary template.</p>
-
-<pre><code class="language-sh">some_func
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">some_func
 ├── Cargo.toml
 └── src
    └── main.rs
-</code></pre>
-
-<p>We will add a <code>lib.rs</code> file to <code>src</code> containing the function and it&rsquo;s test.</p>
-
-<h5 id="lib-rs">lib.rs</h5>
-
-<pre><code class="language-rust">/// some_func returns &quot;some_func&quot;
-pub fn some_func() -&gt; &amp;'static str {
-    &quot;some_func&quot;
+</code></pre></div><p>We will add a <code>lib.rs</code> file to <code>src</code> containing the function and it&rsquo;s test.</p>
+<h5 id="librs">lib.rs</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#e6db74">/// some_func returns &#34;some_func&#34;
+</span><span style="color:#e6db74"></span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">some_func</span>() -&gt; <span style="color:#66d9ef">&amp;</span>&#39;static <span style="color:#66d9ef">str</span> {
+    <span style="color:#e6db74">&#34;some_func&#34;</span>
 }
 
-#[test]
-fn test_some_func() {
-   assert_eq!(some_func(), &quot;some_func&quot;);
+<span style="color:#75715e">#[test]</span>
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">test_some_func</span>() {
+   assert_eq<span style="color:#f92672">!</span>(some_func(), <span style="color:#e6db74">&#34;some_func&#34;</span>);
 }
-</code></pre>
+</code></pre></div><p>Then we&rsquo;ll modify <code>main.rs</code>.</p>
+<h5 id="mainrs">main.rs</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">mod</span> lib;
+<span style="color:#66d9ef">use</span> lib::some_func;
 
-<p>Then we&rsquo;ll modify <code>main.rs</code>.</p>
-
-<h5 id="main-rs">main.rs</h5>
-
-<pre><code class="language-rust">mod lib;
-use lib::some_func;
-
-fn main() {
-    println!(&quot;{}&quot;, some_func());
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}&#34;</span>, some_func());
 }
-</code></pre>
-
-<p>Now <code>cargo test</code> passes!</p>
-
+</code></pre></div><p>Now <code>cargo test</code> passes!</p>
 <p>You&rsquo;ll notice there is only one config file.</p>
+<h5 id="cargotoml">Cargo.toml</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[<span style="color:#a6e22e">package</span>]
+<span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;some_func&#34;</span>
+<span style="color:#a6e22e">version</span> = <span style="color:#e6db74">&#34;0.1.0&#34;</span>
+<span style="color:#a6e22e">authors</span> = [<span style="color:#e6db74">&#34;Avi Dessauer &lt;avi.the.coder@gmail.com&gt;&#34;</span>]
 
-<h5 id="cargo-toml">Cargo.toml</h5>
-
-<pre><code class="language-toml">[package]
-name = &quot;some_func&quot;
-version = &quot;0.1.0&quot;
-authors = [&quot;Avi ד &lt;avi.the.coder@gmail.com&gt;&quot;]
-
-[dependencies]
-</code></pre>
-
-<p>When we run <code>cargo test</code> or <code>cargo build</code> it generates <code>Cargo.lock</code>, While this is not as theoretically sound as stack or the cabal solver, in practice, I have doubts that any amount of time I spend on manually configuring package versions will ever match the time it takes to learn cabal and stack.</p>
-
+[<span style="color:#a6e22e">dependencies</span>]
+</code></pre></div><p>When we run <code>cargo test</code> or <code>cargo build</code> it generates <code>Cargo.lock</code>, While this is not as theoretically sound as stack or the cabal solver, in practice, I have doubts that any amount of time I spend on manually configuring package versions will ever match the time it takes to learn cabal and stack.</p>
 <h2 id="disclaimer">Disclaimer</h2>
-
 <p>I am not intending to criticize the work done on cabal or stack. Both solve hard problems.
 I intend to highlight making stack and cabal the default choice for new Haskell programmers&rsquo; front loads complexity.
 I would venture that the primary reason Haskell is such a niche language is because of the prioritization of theoretical soundness at the expense of ease of use.
 If any one, and this is a big &ldquo;If&rdquo;, actually wants Haskell to become more main stream, perhaps try making easier, slightly less-sound tools like cargo.
 I am not a big fan of the adage &lsquo;worse is better&rsquo;, but some times the easy way is better than theoretically sound.</p>
-
 <p>Also apologies for my attempt at humor</p>
 
 </div>
@@ -630,31 +512,20 @@ I am not a big fan of the adage &lsquo;worse is better&rsquo;, but some times th
   
   
 
+    
+
+    
+    <a class="next" href="https://avi-d-coder.github.io/post/resume/" title="Avi Dessauer">
+      Next
+    </a>
+    
+
+  
+
 
 </div>
 
   
-<div class="container comments">
-  <h2>Comments</h2>
-  
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-  (function() {
-    
-    
-    if (window.location.hostname == "localhost")
-      return;
-
-    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
-    dsq.src = '//avi-ds-concise-thoughts.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-</div>
-
 
 </footer>
 
@@ -680,7 +551,7 @@ I am not a big fan of the adage &lsquo;worse is better&rsquo;, but some times th
   
 <div class="container copyright">
   
-  &copy; 2018 Avi ד.
+  (c) 2018 Avi ד.
 
 
 </div>
@@ -692,18 +563,6 @@ I am not a big fan of the adage &lsquo;worse is better&rsquo;, but some times th
 
     </main>
     
-<script type="text/javascript">
-  (function() {
-    
-    
-    if (window.location.hostname == "localhost")
-      return;
-    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
-    dsq.src = '//avi-ds-concise-thoughts.disqus.com/count.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
-
 
 
 <script src="/js/highlight.pack.js"></script>

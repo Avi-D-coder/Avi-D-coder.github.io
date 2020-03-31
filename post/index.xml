@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts</title>
@@ -6,19 +6,41 @@
     <description>Recent content on Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <managingEditor>avi.the.coder@gmail.com (Avi ד)</managingEditor>
-    <webMaster>avi.the.coder@gmail.com (Avi ד)</webMaster>
+    <managingEditor>avi.the.coder@gmail.com (Avi Dessauer)</managingEditor>
+    <webMaster>avi.the.coder@gmail.com (Avi Dessauer)</webMaster>
     <copyright>(c) 2018 Avi ד.</copyright>
-    <lastBuildDate>Tue, 22 May 2018 18:57:56 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2020 08:32:59 -0400</lastBuildDate>
     
 	<atom:link href="https://avi-d-coder.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>A Design for a concurrent, pauseless, copying, GC as a Rust crate</title>
+      <link>https://avi-d-coder.github.io/post/the-concise-gc-design/</link>
+      <pubDate>Tue, 31 Mar 2020 08:32:59 -0400</pubDate>
+      <author>avi.the.coder@gmail.com (Avi Dessauer)</author>
+      <guid>https://avi-d-coder.github.io/post/the-concise-gc-design/</guid>
+      <description>The Concise GC design First, we will go over the core invariants and routines that enable type safe, pause-free GC. Second, we will add more complex features: destructors, rooting, polymorphism, and mutation. The GC uses a novel tri-color like design, and monomorphic types to discipline the heap graph and minimizes inter thread synchronization.
+The Worker thread View  Arenas are single threaded bump allocators for Gc&amp;lt;T&amp;gt;. Gc&amp;lt;T&amp;gt; may contain normal non GCed rust types like Box&amp;lt;T&amp;gt;,&amp;amp;str, Box&amp;lt;Mutex&amp;lt;T&amp;gt;&amp;gt; and usize.</description>
+    </item>
+    
+    <item>
+      <title>Avi Dessauer</title>
+      <link>https://avi-d-coder.github.io/post/resume/</link>
+      <pubDate>Wed, 18 Mar 2020 13:18:27 -0400</pubDate>
+      <author>avi.the.coder@gmail.com (Avi Dessauer)</author>
+      <guid>https://avi-d-coder.github.io/post/resume/</guid>
+      <description>AviDessauer :: FunctionalSystemsProgrammer avidessauer@gmail.com, github profile  Frequent open source contributor, avid Hacker News and r/Haskell reader Experience with:  Rust: Years of experience writing it, following RFCs &amp;amp; ecosystem. Haskell: collaborator on haskell-IDE-engine/hls project,
+contributions to dozens of other Haskell projects, follow ghc-proposals &amp;amp; ecosystem. JavaScript/Typescript: Improved Node.js readline Unicode handling,
+Contributions to Coc.nvim,
+Some frontend web development, mostly backend Nodejs SQL: College class, plus some prior experience Linux/Unix:  Started learning on Ubuntu 12.</description>
+    </item>
+    
+    <item>
       <title>Dear Haskell it&#39;s not you, it&#39;s your tooling.</title>
       <link>https://avi-d-coder.github.io/post/dear_haskell/</link>
       <pubDate>Tue, 22 May 2018 18:57:56 -0400</pubDate>
-      <author>avi.the.coder@gmail.com (Avi ד)</author>
+      <author>avi.the.coder@gmail.com (Avi Dessauer)</author>
       <guid>https://avi-d-coder.github.io/post/dear_haskell/</guid>
       <description>Dear Haskell; yes you have some bad parts. String ahem. But for the most part I enjoy learning to write you. See, the problem is your friends; they are extremely agitating. First, your recommended tool Stack Stack does good work sometimes, but seems to prefer making very unreasonable choices:
 Config hell The default project template has three config files: config-hell.cabal package.yaml, stack.yaml. So if you want to add a dependency, how pray tell would you do it?</description>
