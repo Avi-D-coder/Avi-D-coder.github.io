@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Posts</title>
+    <title>Tags on Blog</title>
     <link>https://avi-d-coder.github.io/tags/</link>
-    <description>Recent content in Tags on Posts</description>
+    <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <managingEditor>avi.the.coder@gmail.com (Avi Dessauer)</managingEditor>
     <webMaster>avi.the.coder@gmail.com (Avi Dessauer)</webMaster>
-    <copyright>(c) 2018 Avi ד.</copyright>
+    <copyright>(c) 2020 Avi ד.</copyright>
     
 	<atom:link href="https://avi-d-coder.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     

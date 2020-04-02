@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts</title>
+    <title>Blog</title>
     <link>https://avi-d-coder.github.io/</link>
-    <description>Recent content on Posts</description>
+    <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <managingEditor>avi.the.coder@gmail.com (Avi Dessauer)</managingEditor>
     <webMaster>avi.the.coder@gmail.com (Avi Dessauer)</webMaster>
-    <copyright>(c) 2018 Avi ד.</copyright>
-    <lastBuildDate>Tue, 31 Mar 2020 08:32:59 -0400</lastBuildDate>
+    <copyright>(c) 2020 Avi ד.</copyright>
+    <lastBuildDate>Wed, 18 Mar 2020 13:18:27 -0400</lastBuildDate>
     
 	<atom:link href="https://avi-d-coder.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -26,10 +26,10 @@ The Worker thread View  Arenas are single threaded bump allocators for Gc&amp;lt
     
     <item>
       <title>Résumé</title>
-      <link>https://avi-d-coder.github.io/post/resume/</link>
+      <link>https://avi-d-coder.github.io/resume/</link>
       <pubDate>Wed, 18 Mar 2020 13:18:27 -0400</pubDate>
       <author>avi.the.coder@gmail.com (Avi Dessauer)</author>
-      <guid>https://avi-d-coder.github.io/post/resume/</guid>
+      <guid>https://avi-d-coder.github.io/resume/</guid>
       <description>AviDessauer :: FunctionalSystemsProgrammer avidessauer@gmail.com, github profile  Frequent open source contributor, avid Hacker News and r/Haskell reader Experience with:  Rust: Years of experience writing it, following RFCs &amp;amp; ecosystem. Haskell: collaborator on haskell-IDE-engine/hls project,
 contributions to dozens of other Haskell projects, follow ghc-proposals &amp;amp; ecosystem. JavaScript/Typescript: Improved Node.js readline Unicode handling,
 Contributions to Coc.nvim,
