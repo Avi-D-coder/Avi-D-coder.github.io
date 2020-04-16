@@ -30,7 +30,8 @@ The Worker thread View  Arenas are single threaded bump allocators for Gc&amp;lt
       <pubDate>Wed, 18 Mar 2020 13:18:27 -0400</pubDate>
       <author>avi.the.coder@gmail.com (Avi Dessauer)</author>
       <guid>https://avi-d-coder.github.io/resume/</guid>
-      <description>AviDessauer :: FunctionalSystemsProgrammer avidessauer@gmail.com, github profile  Frequent open source contributor, avid Hacker News and r/Haskell reader Experience with:  Rust: Years of experience writing it, following RFCs &amp;amp; ecosystem. Currently prototyping a concurrent tracing GC. Haskell: collaborator on haskell-IDE-engine/hls project,
+      <description>AviDessauer :: FunctionalSystemsProgrammer avidessauer@gmail.com, github profile  Frequent open source contributor, avid Hacker News and r/Haskell reader Experience with:  Rust: Years of experience writing it, following RFCs &amp;amp; ecosystem.
+Currently prototyping a concurrent tracing GC. Haskell: collaborator on haskell-IDE-engine/hls project,
 contributions to dozens of other Haskell projects, follow ghc-proposals &amp;amp; ecosystem. Currently implementing a visual, debugger that displays the graph of values and thunks over time. JavaScript/Typescript: Improved Node.js readline Unicode handling,</description>
     </item>
     
