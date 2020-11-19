@@ -9,10 +9,17 @@
     <managingEditor>avi.the.coder@gmail.com (Avi Dessauer)</managingEditor>
     <webMaster>avi.the.coder@gmail.com (Avi Dessauer)</webMaster>
     <copyright>(c) 2020 Avi ד.</copyright>
-    <lastBuildDate>Wed, 18 Mar 2020 13:18:27 -0400</lastBuildDate>
-    
-	<atom:link href="https://avi-d-coder.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 31 Mar 2020 08:32:59 -0400</lastBuildDate><atom:link href="https://avi-d-coder.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Résumé</title>
+      <link>https://avi-d-coder.github.io/resume/</link>
+      <pubDate>Thu, 19 Nov 2020 00:00:00 +0000</pubDate>
+      <author>avi.the.coder@gmail.com (Avi Dessauer)</author>
+      <guid>https://avi-d-coder.github.io/resume/</guid>
+      <description>Avi Dessauer :: FunctionalSystemsProgrammer avidessauer@gmail.com, github profile Experience:  A Tweag Summer 2020 Open Source Fellow Frequent open source contributor General knowledge of computer science developed over more than half a decade,
+of daily self driven education.  Technologies:   Haskell:
+ Collaborator on haskell-IDE-engine/haskell-language-server. Author of implicit-hie, used by HLS and Ghcide to remove the need for hie.yaml files. Contributions to dozens of other open source Haskell projects. Follow ghc-proposals &amp;amp; ecosystem developments.</description>
+    </item>
     
     <item>
       <title>A Design for a concurrent, pauseless, copying, GC as a Rust crate</title>
@@ -22,17 +29,6 @@
       <guid>https://avi-d-coder.github.io/post/the-concise-gc-design/</guid>
       <description>The Concise GC design First, we will go over the core invariants and routines that enable type safe, pause-free GC. Second, we will add more complex features: destructors, rooting, polymorphism, and mutation. The GC uses a novel tri-color like design, and monomorphic types to discipline the heap graph and minimizes inter thread synchronization.
 The Worker thread View  Arenas are single threaded bump allocators for Gc&amp;lt;T&amp;gt;. Gc&amp;lt;T&amp;gt; may contain normal non GCed rust types like Box&amp;lt;T&amp;gt;,&amp;amp;str, Box&amp;lt;Mutex&amp;lt;T&amp;gt;&amp;gt; and usize.</description>
-    </item>
-    
-    <item>
-      <title>Résumé</title>
-      <link>https://avi-d-coder.github.io/resume/</link>
-      <pubDate>Wed, 18 Mar 2020 13:18:27 -0400</pubDate>
-      <author>avi.the.coder@gmail.com (Avi Dessauer)</author>
-      <guid>https://avi-d-coder.github.io/resume/</guid>
-      <description>AviDessauer :: FunctionalSystemsProgrammer avidessauer@gmail.com, github profile  Frequent open source contributor, avid Hacker News and r/Haskell reader Experience with:  Rust: Years of experience writing it, following RFCs &amp;amp; ecosystem.
-Currently prototyping a concurrent tracing GC. Haskell: collaborator on haskell-IDE-engine/hls project,
-contributions to dozens of other Haskell projects, follow ghc-proposals &amp;amp; ecosystem. Currently implementing a visual, debugger that displays the graph of values and thunks over time. JavaScript/Typescript: Improved Node.js readline Unicode handling,</description>
     </item>
     
     <item>

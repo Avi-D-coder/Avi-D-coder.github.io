@@ -62,7 +62,7 @@
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://avi-d-coder.github.io/touch-icon-144-precomposed.png">
 <link href="https://avi-d-coder.github.io/favicon.png" rel="icon">
 
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.78.1" />
 
   <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -283,7 +283,7 @@ The message includes a small bit map marking the types of possibility condemned 
 While I have not yet settled on a precise compressed encoding for messages sent on these shared cache lines,
 at least one CAS is required to ensure synchronization.</p>
 <h4 id="acquiring-an-arena">Acquiring an Arena</h4>
-<p>When a worker thread requires a new <code>Arena&lt;T&gt;</code>, it performs a few atomics loads and a CAS to acquire <code>T</code>'s phase and the white regions.
+<p>When a worker thread requires a new <code>Arena&lt;T&gt;</code>, it performs a few atomics loads and a CAS to acquire <code>T</code>&rsquo;s phase and the white regions.
 The worker may also acquire an empty Arena left by the GC thread or the remaining segment of the worker&rsquo;s previously freed Arena.
 The CAS acquire read ensures the worker will see most recent message and
 ensures GC writes prior to the GC&rsquo;s message CAS are will be observed by the worker/

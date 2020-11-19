@@ -44,7 +44,7 @@
   {
     "@context": "http://schema.org",
     "@type": "Article",
-    "headline": "Dear Haskell it\x27s not you, it\x27s your tooling.",
+    "headline": "Dear Haskell it\u0027s not you, it\u0027s your tooling.",
     "author": {
       "@type": "Person",
       "name": "Avi Dessauer"
@@ -62,7 +62,7 @@
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://avi-d-coder.github.io/touch-icon-144-precomposed.png">
 <link href="https://avi-d-coder.github.io/favicon.png" rel="icon">
 
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.78.1" />
 
   <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -500,7 +500,7 @@ This is need necessary to test it as IO is very difficult to test.</p>
 </code></pre></div><p>When we run <code>cargo test</code> or <code>cargo build</code> it generates <code>Cargo.lock</code>, While this is not as theoretically sound as stack or the cabal solver, in practice, I have doubts that any amount of time I spend on manually configuring package versions will ever match the time it takes to learn cabal and stack.</p>
 <h2 id="disclaimer">Disclaimer</h2>
 <p>I am not intending to criticize the work done on cabal or stack. Both solve hard problems.
-I intend to highlight making stack and cabal the default choice for new Haskell programmers&rsquo; front loads complexity.
+I intend to highlight making stack and cabal the default choice for new Haskell programmers' front loads complexity.
 I would venture that the primary reason Haskell is such a niche language is because of the prioritization of theoretical soundness at the expense of ease of use.
 If any one, and this is a big &ldquo;If&rdquo;, actually wants Haskell to become more main stream, perhaps try making easier, slightly less-sound tools like cargo.
 I am not a big fan of the adage &lsquo;worse is better&rsquo;, but some times the easy way is better than theoretically sound.</p>

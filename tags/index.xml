@@ -8,10 +8,6 @@
     <language>en-US</language>
     <managingEditor>avi.the.coder@gmail.com (Avi Dessauer)</managingEditor>
     <webMaster>avi.the.coder@gmail.com (Avi Dessauer)</webMaster>
-    <copyright>(c) 2020 Avi ד.</copyright>
-    
-	<atom:link href="https://avi-d-coder.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>(c) 2020 Avi ד.</copyright><atom:link href="https://avi-d-coder.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
