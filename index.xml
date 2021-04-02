@@ -13,12 +13,12 @@
     <item>
       <title>Résumé</title>
       <link>https://avi-d-coder.github.io/resume/</link>
-      <pubDate>Thu, 19 Nov 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
       <author>avi.the.coder@gmail.com (Avi Dessauer)</author>
       <guid>https://avi-d-coder.github.io/resume/</guid>
-      <description>Avi Dessauer :: FunctionalSystemsProgrammer avidessauer@gmail.com, github profile Experience:  A Tweag Summer 2020 Open Source Fellow Frequent open source contributor General knowledge of computer science developed over more than half a decade,
+      <description>Avi Dessauer :: FunctionalSystemsProgrammer avidessauer@gmail.com, github profile Experience:  Platonic Systems full stack Haskell contractor on a Haskell, Nix, Postgres web app. A Tweag Summer 2020 Open Source Fellow Frequent open source contributor General knowledge of computer science developed over more than half a decade,
 of daily self driven education.  Technologies:   Haskell:
- Collaborator on haskell-IDE-engine/haskell-language-server. Author of implicit-hie, used by HLS and Ghcide to remove the need for hie.yaml files. Contributions to dozens of other open source Haskell projects. Follow ghc-proposals &amp;amp; ecosystem developments.</description>
+ Collaborator on haskell-language-server/haskell-IDE-engine/ project, Haskell&amp;rsquo;s only LSP server. Author of implicit-hie, used by HLS and Ghcide to remove the need for hie.</description>
     </item>
     
     <item>
