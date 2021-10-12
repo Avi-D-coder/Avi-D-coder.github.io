@@ -62,7 +62,7 @@
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://avi-d-coder.github.io/touch-icon-144-precomposed.png">
 <link href="https://avi-d-coder.github.io/favicon.png" rel="icon">
 
-<meta name="generator" content="Hugo 0.82.0" />
+<meta name="generator" content="Hugo 0.88.1" />
 
   <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -103,8 +103,6 @@
   
 <div class="container topline">
   
-  Need good dev? I am available for hire anywhere in the United States.
-
 
 </div>
 
@@ -223,7 +221,7 @@ with the method <code>fn trace_lifetime&lt;'o, 'n&gt;(&amp;'n self, t: Gc&lt;'o,
 Additionally, we must ensure <code>Trace</code> is not object safe,
 so polymorphic usage (<code>Gc&lt;dyn Trace&gt;</code>) produces a compile error.</p>
 <p>The Trace trait looks a bit like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">trait</span> Trace {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">trait</span> Trace {
     <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">shallow_trace</span>(t: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Self</span>, what_to_trace);
     <span style="color:#66d9ef">const</span> FIELD_COUNT: <span style="color:#66d9ef">u8</span>;
     <span style="color:#66d9ef">const</span> TYPE_INFO: Option<span style="color:#f92672">&lt;</span>GcTypeInfo<span style="color:#f92672">&gt;</span>;
